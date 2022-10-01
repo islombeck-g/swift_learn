@@ -16,14 +16,16 @@ struct ContentView: View {
         ["1","2","3","+"],
         ["0","",".","="],
     ]
-    
+    let operators = ["/","+","%","*"]
+    @State var visibleWorkings=""
+    @State var visibleResults=""
     var body: some View {
         VStack
         {
             HStack
             {
                 Spacer()//выравнивание по правой стороне
-                Text("something not interesting one")
+                Text(visibleWorkings)
                     .padding()//границы экрана
                     .foregroundColor(Color.white)
                     .font(.system(size:30, weight: .heavy))
@@ -31,7 +33,7 @@ struct ContentView: View {
             HStack
             {
                 Spacer()//выравнивание по правой стороне
-                Text("something not interesting two")
+                Text(visibleResults)
                     .padding()//границы экрана
                     .foregroundColor(Color.white)
                     .font(.system(size:30, weight: .heavy))
@@ -40,22 +42,53 @@ struct ContentView: View {
             ForEach(grid, id:\.self)
             {
                 row in
-                ForEach(row, id: \.self)
-                {
-                    cell in
-                    Button {
-                    action:do {buttonPressed(cell: cell)}
-                    } label: {
-                        Text(cell)
-                    }
-                }
+                HStack{
+                    ForEach(row, id: \.self)
+                    {
+                        cell in
+                        Button { action:do {buttonPressed(cell: cell)}
+                        } label: {
+                            Text(cell)
+                                .foregroundColor(buttonColor(cell))
+                                .font(.system(size: 40, weight: .heavy))
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        }
+                    }}
+                
             }
         }
         .background(Color.black.ignoresSafeArea())
     }
+    
+    func buttonColor(_ cell:String)->Color
+    {
+        if(cell=="AC"||cell=="⌦")
+        {return .red}
+        if (cell=="-"||cell=="=" || operators.contains(cell) )
+        {return .orange}
+        return .white
+    }
     func buttonPressed(cell:String)
     {
+        switch cell {
+        case "AC":
+            visibleWorkings=""
+            visibleResults=""
+        case "⌦":
+            visibleWorkings=String(visibleWorkings.dropLast())
+        case "=":
+            visibleResults=calculateResult()
+        default:
+            visibleWorkings+=cell
+        }
         
+        
+        
+    }
+    func calculateResult()->String
+    {
+        var workings=visibleWorkings.replacingOccurrences(of: <#T##StringProtocol#>, with: <#T##StringProtocol#>)
+        return ""
     }
 }
 
