@@ -123,26 +123,27 @@ struct ContentView: View {
     {
         if(validInput())
         {
-            var workings = visibleWorkings.replaceOccurrences(of: "%", with: "*0.01")
-            workings = visibleWorkings.replacingOccurrences(of: "X", with: "*")
+            var workings = visibleWorkings.replacingOccurrences(of: "%", with: "*0.01")
+            workings = workings.replacingOccurrences(of: "X", with: "*")
             let expression = NSExpression(format: workings)
-            let result = expression.expressionValue(withObject: nil, context: nil) as! Double
+            let result = expression.expressionValue(with: nil, context: nil) as! Double
+            
             return formatResult(val:result)
             
         }
-        showAllert=true
+        showAlert = true
         return " "
     }
-    func validinput()->Bool
+    func validInput()->Bool
     {
         if(visibleWorkings.isEmpty)
         {
             return false
         }
-        let last = String(visibleWorking.last!)
+        let last = String(visibleWorkings.last!)
         if(operators.contains(last)||last=="-")
         {
-            if(last  != "%" || visibleWorking.cout == 1)
+            if(last != "%" || visibleWorkings.count == 1)
             {
                 return false
             }
