@@ -1,14 +1,14 @@
 //
-//  todoListApp.swift
-//  todoList
+//  toDoListApp.swift
+//  toDoList
 //
-//  Created by Islombek Gofurov on 14.10.2022.
+//  Created by Islombek Gofurov on 16.10.2022.
 //
 
 import SwiftUI
 
 @main
-struct todoListApp: App {
+struct toDoListApp: App {
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {

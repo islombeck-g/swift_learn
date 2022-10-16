@@ -1,8 +1,8 @@
 //
 //  Persistence.swift
-//  todoList
+//  toDoList
 //
-//  Created by Islombek Gofurov on 14.10.2022.
+//  Created by Islombek Gofurov on 16.10.2022.
 //
 
 import CoreData
@@ -13,7 +13,7 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-         
+        
         do {
             try viewContext.save()
         } catch {
@@ -25,10 +25,10 @@ struct PersistenceController {
         return result
     }()
 
-    let container: NSPersistentCloudKitContainer
+    let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentCloudKitContainer(name: "todoList")
+        container = NSPersistentContainer(name: "toDoList")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
