@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct TaskEditViews: View {
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var dateHolder: DateHolder
+    
     @State var selectedTaskItem: TaskItem?
     @State var desc: String
     @State var name: String
@@ -45,7 +49,7 @@ struct TaskEditViews: View {
             Section(header: Text("Due date"))
             {
                 Toggle("schedulTime", isOn:$schedulTime)
-                DatePicker("Due date", selection: $dueDate)
+                DatePicker("Due date", selection: $dueDate, displayedComponents: displayComps())
             }
             Section()
             {
@@ -54,8 +58,28 @@ struct TaskEditViews: View {
                     .frame(maxWidth: .infinity, alignment: .center)
             }
     }
+        func displayComps()-> DatePickerComponents
+        {
+            
+            return schedulTime [.hourAndMinute, .date]: [.date]
+        }
         func saveAction()
         {
+            with animation
+            {
+                if selectedTaskItem == nil
+                {
+                    selectedTaskItem = TaskItemn(context: viewContext)
+                }
+                selectedTaskItem?.created = Date()
+                selectedTaskItem?.name = name
+                selectedTaskItem?.desc = desc
+                selectedTaskItem?.dueDate = dueDate
+                selectedTaskItem?.schedulTime = schedulTime
+
+
+
+            }
             
         }
 }

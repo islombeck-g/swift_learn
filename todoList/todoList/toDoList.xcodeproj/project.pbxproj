@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6569EA828FC9C12007ED128 /* DateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6569EA728FC9C12007ED128 /* DateHolder.swift */; };
 		A685D92B28FC460E007072BE /* toDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A685D92A28FC460E007072BE /* toDoListApp.swift */; };
 		A685D92D28FC460E007072BE /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A685D92C28FC460E007072BE /* TaskListView.swift */; };
 		A685D92F28FC4610007072BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A685D92E28FC4610007072BE /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A6569EA728FC9C12007ED128 /* DateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHolder.swift; sourceTree = "<group>"; };
 		A685D92728FC460E007072BE /* toDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A685D92A28FC460E007072BE /* toDoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toDoListApp.swift; sourceTree = "<group>"; };
 		A685D92C28FC460E007072BE /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				A685D93328FC4610007072BE /* Persistence.swift */,
 				A685D93528FC4610007072BE /* toDoList.xcdatamodeld */,
 				A685D93028FC4610007072BE /* Preview Content */,
+				A6569EA728FC9C12007ED128 /* DateHolder.swift */,
 			);
 			path = toDoList;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6569EA828FC9C12007ED128 /* DateHolder.swift in Sources */,
 				A685D93428FC4610007072BE /* Persistence.swift in Sources */,
 				A685D94128FC496A007072BE /* TaskEditViews.swift in Sources */,
 				A685D92D28FC460E007072BE /* TaskListView.swift in Sources */,
