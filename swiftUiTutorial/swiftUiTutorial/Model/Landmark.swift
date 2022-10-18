@@ -16,10 +16,10 @@ struct Landmark: Hashable, Codable {
     var state: String
     var description: String
     
-    private var ImageName:String
+    private var imageName:String
     var image:Image
     {
-        Image(ImageName)
+        Image(imageName)
         
     }
     private var coordinates: Coordinates

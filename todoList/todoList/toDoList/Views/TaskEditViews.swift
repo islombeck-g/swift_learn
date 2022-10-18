@@ -17,24 +17,24 @@ struct TaskEditViews: View {
     @State var name: String
     @State var dueDate: Date
     @State var schedulTime: Bool
-  
+    
     init(selectedTaskItem: TaskItem? , initialDate: Date)
     {
-       if let taskItem = selectedTaskItem
+        if let taskItem = selectedTaskItem
         {
-           _selectedTaskItem = State(initialValue: taskItem)
-           _name = State(initialValue: taskItem.name ?? "")
-           _desc = State(initialValue: taskItem.desc ?? "")
-           _dueDate = State(initialValue: taskItem.dueDate ?? initialDate)
-           _schedulTime = State(initialValue: taskItem.schedulTime)
-       }else
+            _selectedTaskItem = State(initialValue: taskItem)
+            _name = State(initialValue: taskItem.name ?? "")
+            _desc = State(initialValue: taskItem.desc ?? "")
+            _dueDate = State(initialValue: taskItem.dueDate ?? initialDate)
+            _schedulTime = State(initialValue: taskItem.schedulTime)
+        }else
         {
-           _name = State(initialValue: "")
-           _desc = State(initialValue: "")
-           _dueDate = State(initialValue: initialDate)
-           _schedulTime = State(initialValue: false)
-           
-       }
+            _name = State(initialValue: "")
+            _desc = State(initialValue: "")
+            _dueDate = State(initialValue: initialDate)
+            _schedulTime = State(initialValue: false)
+            
+        }
     }
     
     var body: some View
@@ -54,38 +54,39 @@ struct TaskEditViews: View {
             Section()
             {
                 Button("save", action: saveAction)
-                    .font(.headline)
+                    .font(.headline )
                     .frame(maxWidth: .infinity, alignment: .center)
             }
-    }
-        func displayComps()-> DatePickerComponents
+        }
+        func displayComps() -> DatePickerComponents
         {
             
-            return schedulTime [.hourAndMinute, .date]: [.date]
+            return schedulTime ? [.hourAndMinute, .date] : [.date]
         }
         func saveAction()
         {
-            with animation
+            withAnimation
             {
                 if selectedTaskItem == nil
                 {
-                    selectedTaskItem = TaskItemn(context: viewContext)
+                    selectedTaskItem = TaskItem(context: viewContext)
                 }
                 selectedTaskItem?.created = Date()
                 selectedTaskItem?.name = name
                 selectedTaskItem?.desc = desc
                 selectedTaskItem?.dueDate = dueDate
                 selectedTaskItem?.schedulTime = schedulTime
-
-
-
+                
+                
+                
             }
             
         }
-}
-
-struct TaskEditViews_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskEditViews(selectedTaskItem: TaskItem(), initialDate: Date())
+    }
+    
+    struct TaskEditViews_Previews: PreviewProvider {
+        static var previews: some View {
+            TaskEditViews(selectedTaskItem: TaskItem(), initialDate: Date())
+        }
     }
 }

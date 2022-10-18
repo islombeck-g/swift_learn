@@ -15,7 +15,7 @@ struct toDoListApp: App {
         WindowGroup {
             
             let context =  persistenceController.container.viewContext
-            let dateHoldet = DateHolder(context )
+            let dateHoldet = DateHolder(context)
             TaskListView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(DateHolder)

@@ -84,8 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				A685D93D28FC48CA007072BE /* FloatingButton.swift */,
-				A685D92C28FC460E007072BE /* TaskListView.swift */,
 				A685D94028FC496A007072BE /* TaskEditViews.swift */,
+				A685D92C28FC460E007072BE /* TaskListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

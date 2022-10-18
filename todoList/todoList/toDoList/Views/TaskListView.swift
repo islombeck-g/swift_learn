@@ -28,7 +28,7 @@ struct TaskListView: View {
                     {
                         ForEach(items)
                         { item in
-                            NavigationLink(destination: TaskEditViews())
+                            NavigationLink(destination: NavigationLink (destination: TaskEditViews(passedTaskItem: nil, initialDate: Date()) .environmentObject(dateHolder))
                             {
                                 Text(item.dueDate!, formatter: itemFormatter)
                             }
@@ -41,18 +41,20 @@ struct TaskListView: View {
                         }
                     }
                     FloatingButton()
+                                .environmentObject(dateHolder)
                 }
             }.navigationTitle("ToDoList")
             
         }
     }
 
+     
     
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
 
-            saveContext(viewContext)
+            dateHolder.saveContext(viewContext)
         }
     }
 }
