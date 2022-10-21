@@ -27,12 +27,14 @@ struct TaskListView: View {
                     List
                     {
                         ForEach(items)
-                        { item in
-                            NavigationLink(destination: NavigationLink (destination: TaskEditViews(passedTaskItem: nil, initialDate: Date()) .environmentObject(dateHolder))
+                        { taskItem in
+                            NavigationLink(destination: TaskEditViews(selectedTaskItem: taskItem, initialDate: Date())
+                                .environmentObject(dateHolder))
                             {
-                                Text(item.dueDate!, formatter: itemFormatter)
+                                TaskCell(passedTaskItem: taskItem)
+                                    .environmentObject(dateHolder)
                             }
-                        }
+                        } 
                         .onDelete(perform: deleteItems)
                     }
                     .toolbar {

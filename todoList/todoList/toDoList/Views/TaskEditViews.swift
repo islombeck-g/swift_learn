@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TaskEditViews: View {
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var dateHolder: DateHolder
     
@@ -51,6 +52,16 @@ struct TaskEditViews: View {
                 Toggle("schedulTime", isOn:$schedulTime)
                 DatePicker("Due date", selection: $dueDate, displayedComponents: displayComps())
             }
+           
+            if selectedTaskItem?.isCompleted() ?? false
+            {
+                Section(header: Text("Completed"))
+                {
+                    Text(selectedTaskItem?.completedDate?.formatted(date: .abbreviated, time: .shortened) ?? "")
+                        .foregroundColor(.green)
+                }
+            }
+            
             Section()
             {
                 Button("save", action: saveAction)
@@ -58,6 +69,8 @@ struct TaskEditViews: View {
                     .frame(maxWidth: .infinity, alignment: .center)
             }
         }
+    }
+    
         func displayComps() -> DatePickerComponents
         {
             
@@ -77,7 +90,8 @@ struct TaskEditViews: View {
                 selectedTaskItem?.dueDate = dueDate
                 selectedTaskItem?.schedulTime = schedulTime
                 
-                
+                dateHolder.saveContext(viewContext)
+                self.presentationMode.wrappedValue.dismiss()
                 
             }
             
@@ -89,4 +103,4 @@ struct TaskEditViews: View {
             TaskEditViews(selectedTaskItem: TaskItem(), initialDate: Date())
         }
     }
-}
+
