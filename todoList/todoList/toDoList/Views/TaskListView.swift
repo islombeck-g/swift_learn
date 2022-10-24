@@ -10,10 +10,10 @@ import CoreData
 
 struct TaskListView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @EnvironmentObject var dateHolder: DateHolder 
+    @EnvironmentObject var dateHolder: DateHolder
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \TaskItem.dueDate, ascending: true)], 
+        sortDescriptors: [NSSortDescriptor(keyPath: \TaskItem.dueDate, ascending: true)],
         animation: .default)
     private var items: FetchedResults<TaskItem>
 
@@ -34,7 +34,7 @@ struct TaskListView: View {
                                 TaskCell(passedTaskItem: taskItem)
                                     .environmentObject(dateHolder)
                             }
-                        } 
+                        }
                         .onDelete(perform: deleteItems)
                     }
                     .toolbar {

@@ -16,6 +16,7 @@
 		A685D93728FC4610007072BE /* toDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A685D93528FC4610007072BE /* toDoList.xcdatamodeld */; };
 		A685D93E28FC48CA007072BE /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A685D93D28FC48CA007072BE /* FloatingButton.swift */; };
 		A685D94128FC496A007072BE /* TaskEditViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A685D94028FC496A007072BE /* TaskEditViews.swift */; };
+		A6B129BF2902F1DE00C82EF5 /* TaskFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B129BE2902F1DE00C82EF5 /* TaskFilter.swift */; };
 		A6BE5B922902D08600793AAF /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BE5B912902D08600793AAF /* TaskCell.swift */; };
 		A6BE5B962902D4E500793AAF /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BE5B952902D4E500793AAF /* CheckBoxView.swift */; };
 		A6BE5B992902D60600793AAF /* TaskItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BE5B982902D60600793AAF /* TaskItemExtension.swift */; };
@@ -32,6 +33,7 @@
 		A685D93628FC4610007072BE /* toDoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = toDoList.xcdatamodel; sourceTree = "<group>"; };
 		A685D93D28FC48CA007072BE /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		A685D94028FC496A007072BE /* TaskEditViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditViews.swift; sourceTree = "<group>"; };
+		A6B129BE2902F1DE00C82EF5 /* TaskFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFilter.swift; sourceTree = "<group>"; };
 		A6BE5B912902D08600793AAF /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		A6BE5B952902D4E500793AAF /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		A6BE5B982902D60600793AAF /* TaskItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemExtension.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				A6BE5B982902D60600793AAF /* TaskItemExtension.swift */,
 				A685D93328FC4610007072BE /* Persistence.swift */,
+				A6B129BE2902F1DE00C82EF5 /* TaskFilter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				A685D93E28FC48CA007072BE /* FloatingButton.swift in Sources */,
 				A685D92B28FC460E007072BE /* toDoListApp.swift in Sources */,
 				A685D93728FC4610007072BE /* toDoList.xcdatamodeld in Sources */,
+				A6B129BF2902F1DE00C82EF5 /* TaskFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
