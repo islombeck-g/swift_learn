@@ -7,54 +7,54 @@
 
 import SwiftUI
 
-struct Post: Identifiable, Codable
-{
-    var id = UUID()
-    let title: String
-    let body: String
+struct Response: Codable {
+    var results: [Result]
+}
+
+struct Result: Codable {
+    var trackId: Int
+    var trackName: String
+    var collectionName: String
 }
 
 
 
-class Api: ObservableObject
-{
-    func getPost(completion:@escaping ([Post])->()){
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts")
-        else {return}
-        URLSession.shared.dataTask(with: url){
-            data, _, _ in
-            do {
-                let posts = try JSONDecoder().decode([Post].self, from: data!)
-                DispatchQueue.main.async {
-                    completion(posts)
-                }
-            } catch {
-                print("---", error)
+
+struct ContentView: View {
+    @State private var results = [Result]()
+
+    var body: some View {
+        List(results, id: \.trackId) { item in
+            VStack(alignment: .leading) {
+                Text(item.trackName)
+                    .font(.headline)
+                Text(item.collectionName)
+            }
+        }.task {
+            await loadData()
+        }
+    }
+    
+    
+    
+    
+    
+    func loadData() async {
+        guard let url = URL(string: "https://itunes.apple.com/search?term=taylor+swift&entity=song")
+        else {
+            print("Invalid URL")
+            return
+        }
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+
+            if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
+                results = decodedResponse.results
             }
             
-        }
-        .resume()
-    }
-}
-struct ContentView: View {
-    @State var posts: [Post] = []
-    
-    var body: some View {
-        NavigationView
-        {
-         List(posts)
-            {post in
-                VStack{
-                    Text(post.title)
-                        .fontWeight(.bold)
-                    Text(post.body)
-                }
-            }
-            .onAppear(){
-                Api().getPost{(posts) in
-                    self.posts=posts
-                }
-            }.navigationBarTitle("posts")
+            
+        } catch {
+            print("Invalid data")
         }
     }
 }
