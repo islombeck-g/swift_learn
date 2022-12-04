@@ -1,14 +1,15 @@
 //
-//  json_exampleApp.swift
-//  json_example
+//  jsonApiTestApp.swift
+//  jsonApiTest
 //
-//  Created by Islombek Gofurov on 08.11.2022.
+//  Created by Islombek Gofurov on 04.12.2022.
 //
 
 import SwiftUI
 
 @main
-struct json_exampleApp: App {
+struct jsonApiTestApp: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
