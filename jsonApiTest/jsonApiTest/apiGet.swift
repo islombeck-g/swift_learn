@@ -1,9 +1,3 @@
-//
-//  apiGet.swift
-//  jsonApiTest
-//
-//  Created by Islombek Gofurov on 04.12.2022.
-//
 
 import Foundation
 struct ApiGet: Codable  {
