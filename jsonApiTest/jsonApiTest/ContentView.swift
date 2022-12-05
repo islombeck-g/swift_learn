@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var results = [ApiGet]()
+    @State private var results = [ApiGet]()
   
     var body: some View {
         List(results, id: \.id) { item in
             VStack(alignment: .leading) {
                 Text(item.login)
+                Text("something")
             }
         }.onAppear(perform: loadData)
     }

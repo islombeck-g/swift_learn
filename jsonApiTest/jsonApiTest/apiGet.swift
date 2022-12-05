@@ -7,35 +7,35 @@
 
 import Foundation
 struct ApiGet: Codable  {
-    var login: String
-       var id: Int
-       var node_id: String
-       var avatar_url: URL
-       var url: URL
-       var html_url: URL
-       var followers_url: URL
-       var following_url: URL
-       var gists_url:URL
-       var starred_url:URL
-       var subscriptions_url: URL
-       var organizations_url: URL
-       var repos_url: URL
-       var events_url: URL
-       var received_events_url: URL
-       var type: String
-       var site_admin: Bool
-       var name: String
-       var company: String
-       var blog: String
-       var location: String
-       var email: String
-       var hireable: String
-       var bio: String
-       var twitter_username: String
-       var public_repos: Int
-       var public_gists: Int
-       var followers: Int
-       var following: Int
-       //var created_at: //"2022-02-15T13:01:58Z"
-       //var updated_at: //"2022-11-09T16:04:08Z"
+    let login: String
+    let id: Int
+    let node_id: String
+    let avatar_url: String
+    let url: String
+    let html_url: String
+    let followers_url: String
+    let following_url: String
+    let gists_url:String
+    let starred_url:String
+    let subscriptions_url: String
+    let organizations_url: String
+    let repos_url: String
+    let events_url: String
+    let received_events_url: String
+    let type: String
+    let site_admin: Bool
+    let name: String
+    let company: String
+    let blog: String
+    let location: String?
+    let email: String?
+    let hireable: String?
+    let bio: String
+    let twitter_username: String?
+    let public_repos: Int
+    let public_gists: Int
+    let followers: Int
+    let following: Int
+    //var created_at: //"2022-02-15T13:01:58Z"
+    //var updated_at: //"2022-11-09T16:04:08Z"
 }
