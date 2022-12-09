@@ -35,7 +35,7 @@ struct ContentView: View {
                         ZStack{
                             Text("url")
                                 .offset(x:-110)
-                            Text(URL(item.url))
+                            Text(item.url)
                                 .foregroundColor(Color.blue)
                                 .offset(x:150)
                         }

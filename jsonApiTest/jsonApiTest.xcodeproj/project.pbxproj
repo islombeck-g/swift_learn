@@ -55,9 +55,9 @@
 			children = (
 				A6BBE92B293D247F0030990D /* jsonApiTestApp.swift */,
 				A6BBE92D293D247F0030990D /* ContentView.swift */,
+				A6BBE939293D2B590030990D /* apiGet.swift */,
 				A6BBE92F293D24800030990D /* Assets.xcassets */,
 				A6BBE931293D24800030990D /* Preview Content */,
-				A6BBE939293D2B590030990D /* apiGet.swift */,
 			);
 			path = jsonApiTest;
 			sourceTree = "<group>";
