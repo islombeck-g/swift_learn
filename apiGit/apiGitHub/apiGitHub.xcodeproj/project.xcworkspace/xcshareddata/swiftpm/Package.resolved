@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "octokit.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nerdishbynature/octokit.swift.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "35526dff4fb9a370ddfca0f381420b0b6455a28d"
+      }
+    },
+    {
+      "identity" : "requestkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nerdishbynature/RequestKit.git",
+      "state" : {
+        "revision" : "8b0258ea2a4345cbcac90509b764faacea12efb0",
+        "version" : "3.2.1"
+      }
+    }
+  ],
+  "version" : 2
+}
