@@ -17,13 +17,19 @@ struct gameSettings: View {
             VStack{
                 Text("Выберите количество ролей")
                     .bold()
-                HStack{
+                    .font(.system(size:20))
+                
+                HStack(){
                     Text("Всего игроков")
+                        .font(.system(size:20))
+                        .padding(.leading, 40.0)
+                    Spacer()
                     Button{
                         s.minusCountAllPlayers()
                     } label:{
                         Image(systemName: "minus")
                             .foregroundColor(Color("button_black_white"))
+                            .padding()
                     }
                     Text(s.printPeople())
                     Button{
@@ -31,17 +37,27 @@ struct gameSettings: View {
                     }label: {
                         Image(systemName: "plus")
                             .foregroundColor(Color("button_black_white"))
+                            .padding()
                     }
-                }
+                    
+                }.padding()
+                
+            
                 
                 
                 HStack{
                     Text("Мафия")
+                        .font(.system(size:20))
+                        .padding(.leading, 40.0)
+                        
+                        
+                    Spacer()
                     Button{
                         s.minuscountOfMafia()
                     } label:{
                         Image(systemName: "minus")
                             .foregroundColor(Color("button_black_white"))
+                            .padding()
                     }
                     Text(s.printMafia())
                     Button{
@@ -49,18 +65,23 @@ struct gameSettings: View {
                     }label: {
                         Image(systemName: "plus")
                             .foregroundColor(Color("button_black_white"))
+                            .padding()
                     }
                 }
+                .padding()
             }
+            
             .padding(.top, 25.0)
             Spacer()
             //дополнительные роли
             VStack{
                 Text("Выберите дополнительные роли")
+                    .font(.system(size:20))
                     .bold()
                 
                 Button{
                     s.donMafiaInGame()
+                    print(s.freePlaces)
                 }label: {
                     if s.DonMafia{
                         HStack{

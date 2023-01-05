@@ -33,10 +33,22 @@ class GameSettings: ObservableObject {
     }
     func minusCountAllPlayers(){
         if self.countAllPlayers != 3{
+            
             self.countAllPlayers = self.countAllPlayers - 1
             self.freePlaces = self.freePlaces - 1
             if self.countAllPlayers/3 < self.countOfMafia{
                 minuscountOfMafia()
+            }
+            if self.freePlaces < 0{
+                if self.DonMafia{
+                    self.donMafiaInGame()
+                }else if self.Maniac{
+                    self.maniacInGame()
+                }else if self.Doctor{
+                    self.doctorInGame()
+                }else{
+                    self.journalistInGame()
+                }
             }
         }
     }
@@ -58,8 +70,13 @@ class GameSettings: ObservableObject {
             self.freePlaces = self.freePlaces + 1
         }
     }
+    
+    
+    
+    
+    
     func donMafiaInGame(){
-        if self.DonMafia{
+        if self.DonMafia {
             self.freePlaces = self.freePlaces + 1
             self.DonMafia = false
             
@@ -68,10 +85,9 @@ class GameSettings: ObservableObject {
             if self.freePlaces > 0{
                 self.freePlaces = self.freePlaces - 1
                 self.DonMafia = true
-                
+                return
             }
             self.DonMafia = false
-            
         }
     }
     func doctorInGame(){
@@ -83,7 +99,7 @@ class GameSettings: ObservableObject {
             if self.freePlaces > 0{
                 self.freePlaces = self.freePlaces - 1
                 self.Doctor = true
-                
+                return
             }
             self.Doctor = false
             
@@ -98,7 +114,7 @@ class GameSettings: ObservableObject {
             if self.freePlaces > 0{
                 self.freePlaces = self.freePlaces - 1
                 self.Maniac = true
-                
+                return
             }
             self.Maniac = false
             
@@ -113,7 +129,7 @@ class GameSettings: ObservableObject {
             if self.freePlaces > 0{
                 self.freePlaces = self.freePlaces - 1
                 self.Journalist = true
-                
+                return
             }
             self.Journalist = false
             
