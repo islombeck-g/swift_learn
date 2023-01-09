@@ -1,8 +1,10 @@
 
 import SwiftUI
 
+
+
 struct gamersNameChange: View {
-    @EnvironmentObject var s1: GameSettings
+    @ObservedObject var s: GameSettings
     @State private var people: [String] = []
     
     var body: some View {
@@ -19,7 +21,7 @@ struct gamersNameChange: View {
     }
     
     func addPeopleName(){
-        for i in 0..<(s1.countAllPlayers-1){
+        for i in 0..<(s.countAllPlayers){
             people.append("Игрок \(i)")
         }
     }
@@ -27,7 +29,6 @@ struct gamersNameChange: View {
 
 struct gamersNameChange_Previews: PreviewProvider {
     static var previews: some View {
-        gamersNameChange()
-            .environmentObject(GameSettings())
+        gamersNameChange(s: GameSettings())
     }
 }

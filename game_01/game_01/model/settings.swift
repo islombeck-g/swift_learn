@@ -1,33 +1,15 @@
-//
-//  settings.swift
-//  game_01
-//
-//  Created by Islombek Gofurov on 03.01.2023.
-//
 
 import Foundation
 
 
-final class GameSettings: ObservableObject {
+class GameSettings: ObservableObject {
     @Published var countAllPlayers: Int = 3
     @Published var countOfMafia: Int = 1
     @Published var DonMafia: Bool = false
     @Published var Maniac: Bool = false
     @Published var Doctor: Bool = false
     @Published var Journalist: Bool = false
-    var freePlaces: Int = 2
-    
-    
-//    init() {
-//        self.countAllPlayers = 3
-//        self.countOfMafia = 1
-//        self.DonMafia = false
-//        self.Maniac = false
-//        self.Doctor = false
-//        self.Journalist = false
-//        self.freePlaces = 2
-//    }
-    
+    @Published var freePlaces: Int = 2
     
     func addCountAllPlayers(){
         self.countAllPlayers = self.countAllPlayers + 1

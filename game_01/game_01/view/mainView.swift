@@ -17,7 +17,7 @@ struct MainView: View {
                 }
                 .padding(80)
                 
-                NavigationLink(destination: gameSettings()){
+                NavigationLink(destination: GameSettingsView()){
                     Text("create game")
                 }
                 .padding(.vertical, 12.0)

@@ -1,9 +1,10 @@
 
 import SwiftUI
 
-struct gameSettings: View {
+
+struct GameSettingsView: View {
     
-    @EnvironmentObject var s: GameSettings
+    @ObservedObject var s = GameSettings()
     @State private var value = 0
     @State private var step = 1
     @State private var range = 0...50
@@ -202,7 +203,7 @@ struct gameSettings: View {
             }
             Spacer()
             
-            NavigationLink(destination: gamersNameChange())
+            NavigationLink(destination: gamersNameChange(s: s))
             {
                 Text("создать игру")
             }
@@ -218,9 +219,12 @@ struct gameSettings: View {
 
 
 
+
 struct gameSettings_Previews: PreviewProvider {
     static var previews: some View {
-        gameSettings()
+        GameSettingsView()
             .environmentObject(GameSettings())
     }
 }
+
+
