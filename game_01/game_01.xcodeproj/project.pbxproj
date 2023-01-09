@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6311038296AD480005A8D61 /* gamersNameChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6311037296AD480005A8D61 /* gamersNameChange.swift */; };
 		A685CF20296415D800778AD3 /* game_01App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A685CF1F296415D800778AD3 /* game_01App.swift */; };
 		A685CF22296415D800778AD3 /* mainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A685CF21296415D800778AD3 /* mainView.swift */; };
 		A685CF24296415D900778AD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A685CF23296415D900778AD3 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A6311037296AD480005A8D61 /* gamersNameChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gamersNameChange.swift; sourceTree = "<group>"; };
 		A685CF1C296415D800778AD3 /* game_01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = game_01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A685CF1F296415D800778AD3 /* game_01App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = game_01App.swift; sourceTree = "<group>"; };
 		A685CF21296415D800778AD3 /* mainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainView.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				A685CF21296415D800778AD3 /* mainView.swift */,
 				A685CF2D2964298C00778AD3 /* gameSettings.swift */,
+				A6311037296AD480005A8D61 /* gamersNameChange.swift */,
 				A685CF2F2964705900778AD3 /* startGame.swift */,
 			);
 			path = view;
@@ -173,6 +176,7 @@
 				A685CF22296415D800778AD3 /* mainView.swift in Sources */,
 				A685CF20296415D800778AD3 /* game_01App.swift in Sources */,
 				A685CF302964705900778AD3 /* startGame.swift in Sources */,
+				A6311038296AD480005A8D61 /* gamersNameChange.swift in Sources */,
 				A685CF2E2964298C00778AD3 /* gameSettings.swift in Sources */,
 				A685CF352964752100778AD3 /* settings.swift in Sources */,
 			);

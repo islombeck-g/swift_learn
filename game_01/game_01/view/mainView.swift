@@ -1,9 +1,3 @@
-//
-//  ContentView.swift
-//  game_01
-//
-//  Created by Islombek Gofurov on 03.01.2023.
-//
 
 import SwiftUI
 
@@ -13,7 +7,6 @@ struct MainView: View {
         NavigationView {
             VStack(alignment: .center){
                 VStack{
-                    
                 }
                 .padding(.vertical, 90.0)
                 VStack {

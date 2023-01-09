@@ -7,25 +7,27 @@
 
 import Foundation
 
-class GameSettings: ObservableObject {
-    @Published var countAllPlayers: Int
-    @Published var countOfMafia: Int
-    @Published var DonMafia: Bool
-    @Published var Maniac: Bool
-    @Published var Doctor: Bool
-    @Published var Journalist: Bool
-    var freePlaces: Int
+
+final class GameSettings: ObservableObject {
+    @Published var countAllPlayers: Int = 3
+    @Published var countOfMafia: Int = 1
+    @Published var DonMafia: Bool = false
+    @Published var Maniac: Bool = false
+    @Published var Doctor: Bool = false
+    @Published var Journalist: Bool = false
+    var freePlaces: Int = 2
     
     
-    init() {
-        self.countAllPlayers = 3
-        self.countOfMafia = 1
-        self.DonMafia = false
-        self.Maniac = false
-        self.Doctor = false
-        self.Journalist = false
-        self.freePlaces = 2
-    }
+//    init() {
+//        self.countAllPlayers = 3
+//        self.countOfMafia = 1
+//        self.DonMafia = false
+//        self.Maniac = false
+//        self.Doctor = false
+//        self.Journalist = false
+//        self.freePlaces = 2
+//    }
+    
     
     func addCountAllPlayers(){
         self.countAllPlayers = self.countAllPlayers + 1
@@ -136,4 +138,3 @@ class GameSettings: ObservableObject {
         }
     }
 }
-

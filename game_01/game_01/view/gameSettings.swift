@@ -1,11 +1,9 @@
 
-
 import SwiftUI
 
 struct gameSettings: View {
     
-    
-    @StateObject private var s = GameSettings()
+    @EnvironmentObject var s: GameSettings
     @State private var value = 0
     @State private var step = 1
     @State private var range = 0...50
@@ -13,12 +11,10 @@ struct gameSettings: View {
     var body: some View {
         VStack{
             //количество ролей
-            
             VStack{
                 Text("Выберите количество ролей")
                     .bold()
                     .font(.system(size:20))
-                
                 HStack(){
                     Text("Всего игроков")
                         .font(.system(size:20))
@@ -41,16 +37,10 @@ struct gameSettings: View {
                     }
                     
                 }.padding()
-                
-            
-                
-                
                 HStack{
                     Text("Мафия")
                         .font(.system(size:20))
                         .padding(.leading, 40.0)
-                        
-                        
                     Spacer()
                     Button{
                         s.minuscountOfMafia()
@@ -70,7 +60,6 @@ struct gameSettings: View {
                 }
                 .padding()
             }
-            
             .padding(.top, 25.0)
             Spacer()
             //дополнительные роли
@@ -78,7 +67,6 @@ struct gameSettings: View {
                 Text("Выберите дополнительные роли")
                     .font(.system(size:20))
                     .bold()
-                
                 Button{
                     s.donMafiaInGame()
                     print(s.freePlaces)
@@ -98,7 +86,6 @@ struct gameSettings: View {
                         .background(Color.gray)
                         .cornerRadius(10)
                         .foregroundColor(Color("button_black_white"))
-                        
                     }
                     else{
                         HStack{
@@ -112,10 +99,8 @@ struct gameSettings: View {
                         .background(Color.gray)
                         .cornerRadius(10)
                         .foregroundColor(Color("button_black_white"))
-                        
                     }
                 }
-                
                 Button{
                     s.maniacInGame()
                 }label: {
@@ -147,7 +132,6 @@ struct gameSettings: View {
                         .cornerRadius(10)
                         .foregroundColor(Color("button_black_white"))
                     }
-                    
                 }
                 Button{
                     s.doctorInGame()
@@ -181,7 +165,6 @@ struct gameSettings: View {
                         .cornerRadius(10)
                         .foregroundColor(Color("button_black_white"))
                     }
-                    
                 }
                 Button{
                     s.journalistInGame()
@@ -215,11 +198,11 @@ struct gameSettings: View {
                         .cornerRadius(10)
                         .foregroundColor(Color("button_black_white"))
                     }
-                    
                 }
             }
             Spacer()
-            NavigationLink(destination: startGame())
+            
+            NavigationLink(destination: gamersNameChange())
             {
                 Text("создать игру")
             }
@@ -231,8 +214,6 @@ struct gameSettings: View {
                     .cornerRadius(10))
         } .navigationTitle("настройте игру")
     }
-    
-    
 }
 
 
@@ -240,5 +221,6 @@ struct gameSettings: View {
 struct gameSettings_Previews: PreviewProvider {
     static var previews: some View {
         gameSettings()
+            .environmentObject(GameSettings())
     }
 }
