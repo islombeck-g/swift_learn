@@ -1,10 +1,15 @@
+//
+//  CountOfGamersView.swift
+//  game_02
+//
+//  Created by Islombek Gofurov on 12.01.2023.
+//
 
 import SwiftUI
 
-
-struct GameSettingsView: View {
+struct CountOfGamersView: View {
     
-    @ObservedObject var s = GameSettings()
+    @ObservedObject var s = GameSettingsViewModel()
     @State private var value = 0
     @State private var step = 1
     @State private var range = 0...50
@@ -22,7 +27,7 @@ struct GameSettingsView: View {
                         .padding(.leading, 40.0)
                     Spacer()
                     Button{
-                        s.minusCountAllPlayers()
+                        s.minusCountPlayers()
                     } label:{
                         Image(systemName: "minus")
                             .foregroundColor(Color("button_black_white"))
@@ -30,7 +35,7 @@ struct GameSettingsView: View {
                     }
                     Text(s.printPeople())
                     Button{
-                        s.addCountAllPlayers()
+                        s.addCountPlayers()
                     }label: {
                         Image(systemName: "plus")
                             .foregroundColor(Color("button_black_white"))
@@ -44,7 +49,7 @@ struct GameSettingsView: View {
                         .padding(.leading, 40.0)
                     Spacer()
                     Button{
-                        s.minuscountOfMafia()
+                        s.minusCountMafia()
                     } label:{
                         Image(systemName: "minus")
                             .foregroundColor(Color("button_black_white"))
@@ -52,7 +57,7 @@ struct GameSettingsView: View {
                     }
                     Text(s.printMafia())
                     Button{
-                        s.addCountOfMafia()
+                        s.addCountMafia()
                     }label: {
                         Image(systemName: "plus")
                             .foregroundColor(Color("button_black_white"))
@@ -69,10 +74,9 @@ struct GameSettingsView: View {
                     .font(.system(size:20))
                     .bold()
                 Button{
-                    s.donMafiaInGame()
-                    print(s.freePlaces)
+                    s.donMafiaIngame()
                 }label: {
-                    if s.DonMafia{
+                    if s.boolDonMafia(){
                         HStack{
                             Image("hat")
                                 .resizable()
@@ -105,7 +109,7 @@ struct GameSettingsView: View {
                 Button{
                     s.maniacInGame()
                 }label: {
-                    if s.Maniac{
+                    if s.boolManiac(){
                         HStack{
                             Image("knife")
                                 .resizable()
@@ -137,7 +141,7 @@ struct GameSettingsView: View {
                 Button{
                     s.doctorInGame()
                 }label: {
-                    if s.Doctor{
+                    if s.boolDoctor(){
                         HStack{
                             Image("doctor")
                                 .resizable()
@@ -170,7 +174,7 @@ struct GameSettingsView: View {
                 Button{
                     s.journalistInGame()
                 }label: {
-                    if s.Journalist{
+                    if s.boolJournalist(){
                         HStack{
                             Label("some", systemImage: "camera.fill")
                                 .padding(.trailing, 10.0)
@@ -203,7 +207,7 @@ struct GameSettingsView: View {
             }
             Spacer()
             
-            NavigationLink(destination: PeopleRowView(s: s))
+            NavigationLink(destination: GamersListView(s:s))
             {
                 Text("создать игру")
             }
@@ -217,14 +221,8 @@ struct GameSettingsView: View {
     }
 }
 
-
-
-
-struct gameSettings_Previews: PreviewProvider {
+struct CountOfGamersView_Previews: PreviewProvider {
     static var previews: some View {
-        GameSettingsView()
-            .environmentObject(GameSettings())
+        CountOfGamersView()
     }
 }
-
-
