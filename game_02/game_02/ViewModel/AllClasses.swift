@@ -3,10 +3,11 @@ import Foundation
 
 class GameSettingsViewModel:ObservableObject {
     
-    var settings: GameSettings
-    
+    @Published var settings: GameSettings
+    @Published var names = [String]()
+    @Published var icons = Array<String>()
     init(){
-        self.settings = GameSettings(countPlayers: 3, countMafia: 1, DonMafia: false, Maniac: false, Doctor: false, Journalist: false, freePlaces: 2, whoiswhoList: ["GoodPeople" : "person.fill"])
+        self.settings = GameSettings(countPlayers: 3, countMafia: 1, DonMafia: false, Maniac: false, Doctor: false, Journalist: false, freePlaces: 1)
     }
     
     func addCountPlayers(){
@@ -128,35 +129,46 @@ class GameSettingsViewModel:ObservableObject {
         return self.settings.countPlayers
     }
     
-    func addNameGamers(me:[String]){
-        self.settings.peopleName = me
-    }
+//    func addNameGamers(me:[String]){
+//        self.settings.peopleName = me
+//    }
     
     
-    func whoiswhoRand(){
+    func whoiswhoRand(name:[String]){
+        let randomNames = name.shuffled()
         var i = 0
-        var t = ""
         if self.boolDonMafia(){
-            
-            self.settings.whoiswhoList["DonMafia \(self.settings.peopleName[i])"] = "hat"
+            self.names.append("DonMafia \(randomNames[i])")
+            self.icons.append("hat")
             i += 1
         }
         if self.boolDoctor(){
-            self.settings.whoiswhoList["Doctor \(self.settings.peopleName[i])"] = "doctor"
+            self.names.append( "Doctor \(randomNames[i])")
+            self.icons.append("doctor")
             i += 1
         }
-        if self.boolDonMafia(){
-            self.settings.whoiswhoList["Maniac \(self.settings.peopleName[i])"] = "knife"
+        if self.boolManiac(){
+            self.names.append("Maniac \(randomNames[i])")
+            self.icons.append("knife")
             i += 1
         }
         if self.boolJournalist(){
-            self.settings.whoiswhoList["Journalist \(self.settings.peopleName[i])"] = "camera.fill"
+            self.names.append("Journalist \(randomNames[i])")
+            self.icons.append("camera.fill")
             i += 1
         }
         while self.settings.countMafia != 0{
-            self.settings.whoiswhoList["Mafia \(self.settings.peopleName[i])"] = "knife"
+            self.names.append("Mafia \(randomNames[i])")
+            self.icons.append("knife")
+            self.settings.countMafia -= 1
+            i += 1
         }
-        
+        while i<randomNames.count-1{
+            self.names.append("Good \(randomNames[i])")
+            self.icons.append("person.fill")
+            i += 1
+            print(self.names)
+        }
     }
     
 }

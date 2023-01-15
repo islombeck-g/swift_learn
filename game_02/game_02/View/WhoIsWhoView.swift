@@ -6,27 +6,27 @@
 //
 
 import SwiftUI
-import SwiftUIPager
+
 
 
 struct WhoIsWhoView: View {
     
     @ObservedObject var s: GameSettingsViewModel
-    let names = ["John", "Emily", "Michael", "Sarah", "Jessica"]
-        @State private var currentIndex = 0
-
-        var body: some View {
-            VStack {
-                
-                Text("Current name: \(names[currentIndex])")
-                Button(action: {
-                    self.currentIndex = (self.currentIndex + 1) % self.names.count
-                }) {
-                    Text("Switch")
-                }
+    //let names = ["John", "Emily", "Michael", "Sarah", "Jessica"]
+    
+    @State public var currentIndex = 0
+    
+    var body: some View {
+        VStack {
+            Text("Current name: \($s.names.count)")
+            Button(action: {
+                self.currentIndex = self.currentIndex + 1
+            }) {
+                Text("Switch")
             }
         }
     }
+}
 
 //struct WhoIsWhoView: View {
 //

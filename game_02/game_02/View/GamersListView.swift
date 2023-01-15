@@ -1,16 +1,9 @@
-//
-//  GamersListView.swift
-//  game_02
-//
-//  Created by Islombek Gofurov on 12.01.2023.
-//
 
 import SwiftUI
 
 struct GamersListView: View {
     @ObservedObject var s: GameSettingsViewModel
     @State public var people: [String] = []
-  //  @EnvironmentObject var gamersName:[String] = []
     
     var body: some View {
         VStack{
@@ -24,7 +17,7 @@ struct GamersListView: View {
                 ForEach(people.indices, id:\.self){ tert in
                     TextField(
                         people[tert],
-                            text: $people[tert]
+                        text: $people[tert]
                     )
                     .fixedSize()
                     .frame(maxWidth: 270, minHeight: 40)
@@ -35,27 +28,40 @@ struct GamersListView: View {
                 }
             }
             Spacer()
-            NavigationLink(destination: WhoIsWhoView(s:s))
-            {
-                Text("начать игру")
-                
+            Button(action: {
+                s.whoiswhoRand(name: people)
+                print("meeeeeee")
+            }) {
+                NavigationLink(destination: WhoIsWhoView(s:s)) {
+                    Text("начать игру")
+                }
+                .padding(.vertical, 12.0)
+                .padding(.horizontal, 45.0)
+                .foregroundColor(Color("text_white_black"))
+                .background(Color("button_black_white").cornerRadius(10))
+                .onTapGesture {
+                    print("meeeeeee")
+                }
             }
-            .onAppear {
-                s.addNameGamers(people)
-            }
-            .padding(.vertical, 12.0)
-            .padding(.horizontal, 45.0)
-            .foregroundColor(Color("text_white_black"))
-            .background(
-                Color("button_black_white")
-                    .cornerRadius(10))
-        }.navigationTitle("Игроки")
             
-       
+            
+//            Button{
+//                s.whoiswhoRand(name: people)
+//                print("meeeeeee")
+//            }label:{
+//                NavigationLink(destination: WhoIsWhoView(s:s)) {
+//                    Text("начать игру")
+//                }
+//                .padding(.vertical, 12.0)
+//                .padding(.horizontal, 45.0)
+//                .foregroundColor(Color("text_white_black"))
+//                .background(
+//                    Color("button_black_white")
+//                        .cornerRadius(10))
+//            }
+            
+        }.navigationTitle("Игроки")
         
-        
-        
-    
     }
     func addPeopleName(){
         for i in 0..<(s.countAllGamers()){
