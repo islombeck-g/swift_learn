@@ -1,9 +1,3 @@
-//
-//  CountOfGamersView.swift
-//  game_02
-//
-//  Created by Islombek Gofurov on 12.01.2023.
-//
 
 import SwiftUI
 
@@ -173,6 +167,7 @@ struct CountOfGamersView: View {
                 }
                 Button{
                     s.journalistInGame()
+                    print("journalist")
                 }label: {
                     if s.boolJournalist(){
                         HStack{

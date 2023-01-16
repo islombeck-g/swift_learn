@@ -10,5 +10,6 @@ struct GameSettings{
     var Doctor: Bool
     var Journalist: Bool
     var freePlaces: Int
-    
+    var names = [String]()
+    var icons = Array<String>()
 }

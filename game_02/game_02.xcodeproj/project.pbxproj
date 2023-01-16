@@ -17,7 +17,6 @@
 		A62690302970A57F00820A2E /* GamersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626902F2970A57F00820A2E /* GamersListView.swift */; };
 		A62690322970AD5D00820A2E /* WhoIsWhoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62690312970AD5D00820A2E /* WhoIsWhoView.swift */; };
 		A686FA3D2972180C00E2C797 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A686FA3C2972180C00E2C797 /* DetailView.swift */; };
-		A686FA402972247B00E2C797 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = A686FA3F2972247B00E2C797 /* SwiftUIPager */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +38,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A686FA402972247B00E2C797 /* SwiftUIPager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +126,6 @@
 			);
 			name = game_02;
 			packageProductDependencies = (
-				A686FA3F2972247B00E2C797 /* SwiftUIPager */,
 			);
 			productName = game_02;
 			productReference = A62690152970403500820A2E /* game_02.app */;
@@ -159,7 +156,6 @@
 			);
 			mainGroup = A626900C2970403500820A2E;
 			packageReferences = (
-				A686FA3E2972247B00E2C797 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
 			);
 			productRefGroup = A62690162970403500820A2E /* Products */;
 			projectDirPath = "";
@@ -395,25 +391,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A686FA3E2972247B00E2C797 /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/fermoya/SwiftUIPager.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A686FA3F2972247B00E2C797 /* SwiftUIPager */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A686FA3E2972247B00E2C797 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
-			productName = SwiftUIPager;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A626900D2970403500820A2E /* Project object */;
 }

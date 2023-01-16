@@ -4,8 +4,7 @@ import Foundation
 class GameSettingsViewModel:ObservableObject {
     
     @Published var settings: GameSettings
-    @Published var names = [String]()
-    @Published var icons = Array<String>()
+    
     init(){
         self.settings = GameSettings(countPlayers: 3, countMafia: 1, DonMafia: false, Maniac: false, Doctor: false, Journalist: false, freePlaces: 1)
     }
@@ -138,39 +137,43 @@ class GameSettingsViewModel:ObservableObject {
         let randomNames = name.shuffled()
         var i = 0
         if self.boolDonMafia(){
-            self.names.append("DonMafia \(randomNames[i])")
-            self.icons.append("hat")
+            self.settings.names.append("DonMafia \(randomNames[i])")
+            self.settings.icons.append("hat")
             i += 1
         }
         if self.boolDoctor(){
-            self.names.append( "Doctor \(randomNames[i])")
-            self.icons.append("doctor")
+            self.settings.names.append( "Doctor \(randomNames[i])")
+            self.settings.icons.append("doctor")
             i += 1
         }
         if self.boolManiac(){
-            self.names.append("Maniac \(randomNames[i])")
-            self.icons.append("knife")
+            self.settings.names.append("Maniac \(randomNames[i])")
+            self.settings.icons.append("knife")
             i += 1
         }
         if self.boolJournalist(){
-            self.names.append("Journalist \(randomNames[i])")
-            self.icons.append("camera.fill")
+            self.settings.names.append("Journalist \(randomNames[i])")
+            self.settings.icons.append("camera.fill")
             i += 1
         }
         while self.settings.countMafia != 0{
-            self.names.append("Mafia \(randomNames[i])")
-            self.icons.append("knife")
+            self.settings.names.append("Mafia \(randomNames[i])")
+            self.settings.icons.append("knife")
             self.settings.countMafia -= 1
             i += 1
         }
-        while i<randomNames.count-1{
-            self.names.append("Good \(randomNames[i])")
-            self.icons.append("person.fill")
+        while i<randomNames.count{
+            self.settings.names.append("Good \(randomNames[i])")
+            self.settings.icons.append("person.fill")
             i += 1
-            print(self.names)
         }
     }
-    
+    func printNames(){
+        print(settings.names)
+    }
+    func getName(index:Int)->String{
+        return settings.names[index]
+    }
 }
 
 
