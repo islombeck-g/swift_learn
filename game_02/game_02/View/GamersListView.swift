@@ -35,22 +35,21 @@ struct GamersListView: View {
             Button(action: {
                 self.showingWhoisWhoView.toggle()
                 s.whoiswhoRand(name: self.people)
-                WhoIsWhoView(s:s)
+               // WhoIsWhoView(s:s)
             }) {
                 Text("начать игру")
             }
             //        .sheet(isPresented: $showingWhoisWhoView) {
-//
-//            }
+            //
+            //            }
             .padding(.vertical, 12.0)
             .padding(.horizontal, 45.0)
             .foregroundColor(Color("text_white_black"))
-            .background(
-                Color("button_black_white")
-                    .cornerRadius(10))
+            .background(Color("button_black_white")
+            .cornerRadius(10))
             NavigationLink(destination: WhoIsWhoView(s:s), isActive: $showingWhoisWhoView) {
-                                EmptyView()
-                            }
+                EmptyView()
+            }
         }
         
         

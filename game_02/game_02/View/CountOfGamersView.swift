@@ -72,8 +72,9 @@ struct CountOfGamersView: View {
                 }label: {
                     if s.boolDonMafia(){
                         HStack{
-                            Image("hat")
+                            Image("donMafia")
                                 .resizable()
+                                .position(x: -33, y:12)
                                 .frame(width: 25.0, height: 25.0)
                             Text("Дон мафии")
                                 .padding(.trailing, 29.0)
@@ -88,8 +89,9 @@ struct CountOfGamersView: View {
                     }
                     else{
                         HStack{
-                            Image("hat")
+                            Image("donMafia")
                                 .resizable()
+                                .position(x: -33, y:12)
                                 .frame(width: 25.0, height: 25.0)
                             Text("Дон мафии")
                                 .padding(.trailing, 29.0)
@@ -107,6 +109,7 @@ struct CountOfGamersView: View {
                         HStack{
                             Image("knife")
                                 .resizable()
+                                .position(x: -45, y:12)
                                 .frame(width: 25.0, height: 25.0)
                             Text("Маньяк")
                                 .padding(.trailing, 29.0)
@@ -122,6 +125,7 @@ struct CountOfGamersView: View {
                         HStack{
                             Image("knife")
                                 .resizable()
+                                .position(x: -45, y:12)
                                 .frame(width: 25.0, height: 25.0)
                             Text("Маньяк")
                                 .padding(.trailing, 29.0)
@@ -137,8 +141,9 @@ struct CountOfGamersView: View {
                 }label: {
                     if s.boolDoctor(){
                         HStack{
-                            Image("doctor")
+                            Image("doc")
                                 .resizable()
+                                .position(x: -45, y:12)
                                 .frame(width: 25.0, height: 25.0)
                             Text("Доктор")
                                 .padding(.trailing, 29.0)
@@ -153,8 +158,9 @@ struct CountOfGamersView: View {
                     }
                     else{
                         HStack{
-                            Image("doctor")
+                            Image("doc")
                                 .resizable()
+                                .position(x: -45, y:12)
                                 .frame(width: 25.0, height: 25.0)
                             Text("Доктор")
                                 .padding(.trailing, 29.0)
@@ -171,9 +177,10 @@ struct CountOfGamersView: View {
                 }label: {
                     if s.boolJournalist(){
                         HStack{
-                            Label("some", systemImage: "camera.fill")
-                                .padding(.trailing, 10.0)
-                                .labelStyle(IconOnlyLabelStyle())
+                            Image("journalist")
+                                .resizable()
+                                .position(x: -30, y:12)
+                                .frame(width: 25.0, height: 25.0)
                             Text("Журналист")
                                 .padding(.trailing, 29.0)
                         }
@@ -187,9 +194,13 @@ struct CountOfGamersView: View {
                     }
                     else{
                         HStack{
-                            Label("some", systemImage: "camera.fill")
-                                .padding(.trailing, 10.0)
-                                .labelStyle(IconOnlyLabelStyle())
+                            Image("journalist")
+                                .resizable()
+                                .position(x: -30, y:12)
+                                .frame(width: 25.0, height: 25.0)
+                                
+                                
+                     
                             Text("Журналист")
                                 .padding(.trailing, 29.0)
                         }
@@ -220,4 +231,5 @@ struct CountOfGamersView_Previews: PreviewProvider {
     static var previews: some View {
         CountOfGamersView()
     }
+    
 }

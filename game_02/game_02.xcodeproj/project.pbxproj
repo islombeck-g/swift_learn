@@ -16,7 +16,8 @@
 		A626902E29705A6100820A2E /* CountOfGamersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626902D29705A6100820A2E /* CountOfGamersView.swift */; };
 		A62690302970A57F00820A2E /* GamersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626902F2970A57F00820A2E /* GamersListView.swift */; };
 		A62690322970AD5D00820A2E /* WhoIsWhoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62690312970AD5D00820A2E /* WhoIsWhoView.swift */; };
-		A686FA3D2972180C00E2C797 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A686FA3C2972180C00E2C797 /* DetailView.swift */; };
+		A633CF7C297A954600B5A9C1 /* PersonCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633CF7B297A954600B5A9C1 /* PersonCardView.swift */; };
+		A686FA3D2972180C00E2C797 /* FinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A686FA3C2972180C00E2C797 /* FinalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +31,8 @@
 		A626902D29705A6100820A2E /* CountOfGamersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountOfGamersView.swift; sourceTree = "<group>"; };
 		A626902F2970A57F00820A2E /* GamersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamersListView.swift; sourceTree = "<group>"; };
 		A62690312970AD5D00820A2E /* WhoIsWhoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsWhoView.swift; sourceTree = "<group>"; };
-		A686FA3C2972180C00E2C797 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		A633CF7B297A954600B5A9C1 /* PersonCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCardView.swift; sourceTree = "<group>"; };
+		A686FA3C2972180C00E2C797 /* FinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +98,8 @@
 				A626902D29705A6100820A2E /* CountOfGamersView.swift */,
 				A626902F2970A57F00820A2E /* GamersListView.swift */,
 				A62690312970AD5D00820A2E /* WhoIsWhoView.swift */,
-				A686FA3C2972180C00E2C797 /* DetailView.swift */,
+				A633CF7B297A954600B5A9C1 /* PersonCardView.swift */,
+				A686FA3C2972180C00E2C797 /* FinalView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,7 +187,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A626901B2970403500820A2E /* MainView.swift in Sources */,
-				A686FA3D2972180C00E2C797 /* DetailView.swift in Sources */,
+				A633CF7C297A954600B5A9C1 /* PersonCardView.swift in Sources */,
+				A686FA3D2972180C00E2C797 /* FinalView.swift in Sources */,
 				A626902E29705A6100820A2E /* CountOfGamersView.swift in Sources */,
 				A6269027297040C700820A2E /* AllStructs.swift in Sources */,
 				A62690302970A57F00820A2E /* GamersListView.swift in Sources */,
