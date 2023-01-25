@@ -15,7 +15,7 @@ struct CalendarView: View {
         }
         .edgesIgnoringSafeArea(.all)
         .background(Color.green)
-        
+
     }
 }
 

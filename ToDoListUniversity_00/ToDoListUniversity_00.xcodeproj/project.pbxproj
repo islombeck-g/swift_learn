@@ -17,6 +17,9 @@
 		A6556A8E29806AD10057D44D /* FocuseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6556A8D29806AD10057D44D /* FocuseView.swift */; };
 		A6556A9029806B430057D44D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6556A8F29806B430057D44D /* ProfileView.swift */; };
 		A6556A9229807A9A0057D44D /* AddNewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6556A9129807A9A0057D44D /* AddNewTaskView.swift */; };
+		A661FE5E29813341003F2823 /* ChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A661FE5D29813341003F2823 /* ChangeView.swift */; };
+		A661FE60298136FD003F2823 /* TapBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A661FE5F298136FD003F2823 /* TapBarView.swift */; };
+		A661FE6329813F5C003F2823 /* exampleCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A661FE6229813F5C003F2823 /* exampleCoreData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		A6556A8D29806AD10057D44D /* FocuseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocuseView.swift; sourceTree = "<group>"; };
 		A6556A8F29806B430057D44D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A6556A9129807A9A0057D44D /* AddNewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskView.swift; sourceTree = "<group>"; };
+		A661FE5D29813341003F2823 /* ChangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeView.swift; sourceTree = "<group>"; };
+		A661FE5F298136FD003F2823 /* TapBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarView.swift; sourceTree = "<group>"; };
+		A661FE6229813F5C003F2823 /* exampleCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exampleCoreData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				A64D6370297EEE9700873D4F /* ToDoListUniversity_00App.swift */,
+				A661FE6129813F3C003F2823 /* Models */,
 				A64D6384297EF9D600873D4F /* ViewController */,
 				A64D6383297EF8DF00873D4F /* Views */,
 				A64D636F297EEE9700873D4F /* ToDoListUniversity_00 */,
@@ -89,6 +96,8 @@
 				A6556A8B298069DB0057D44D /* CalendarView.swift */,
 				A6556A8D29806AD10057D44D /* FocuseView.swift */,
 				A6556A8F29806B430057D44D /* ProfileView.swift */,
+				A661FE5D29813341003F2823 /* ChangeView.swift */,
+				A661FE5F298136FD003F2823 /* TapBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -99,6 +108,14 @@
 				A64D6381297EEFF300873D4F /* DateController.swift */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		A661FE6129813F3C003F2823 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A661FE6229813F5C003F2823 /* exampleCoreData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,9 +190,12 @@
 			files = (
 				A6556A8C298069DB0057D44D /* CalendarView.swift in Sources */,
 				A6556A9229807A9A0057D44D /* AddNewTaskView.swift in Sources */,
+				A661FE60298136FD003F2823 /* TapBarView.swift in Sources */,
 				A6556A8E29806AD10057D44D /* FocuseView.swift in Sources */,
 				A64D6373297EEE9700873D4F /* ContentView.swift in Sources */,
+				A661FE5E29813341003F2823 /* ChangeView.swift in Sources */,
 				A64D6382297EEFF300873D4F /* DateController.swift in Sources */,
+				A661FE6329813F5C003F2823 /* exampleCoreData.swift in Sources */,
 				A64D6371297EEE9700873D4F /* ToDoListUniversity_00App.swift in Sources */,
 				A6556A9029806B430057D44D /* ProfileView.swift in Sources */,
 				A64D6380297EEECE00873D4F /* CoreData.xcdatamodeld in Sources */,

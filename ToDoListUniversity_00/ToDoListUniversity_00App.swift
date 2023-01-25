@@ -1,9 +1,3 @@
-//
-//  ToDoListUniversity_00App.swift
-//  ToDoListUniversity_00
-//
-//  Created by Islombek Gofurov on 23.01.2023.
-//
 
 import SwiftUI
 

@@ -20,7 +20,7 @@ struct FinalView: View {
                    }
                    .onDelete(perform: delete)
                }
-               .navigationBarTitle("Users")
+               .navigationBarTitle("Роли игроков")
               
            }.navigationBarHidden(true)
        }

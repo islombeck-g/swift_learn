@@ -4,7 +4,7 @@
         <attribute name="category" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="desc" optional="YES" attributeType="String"/>
-        <attribute name="eecutionDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="executionDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="taskPriority" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>

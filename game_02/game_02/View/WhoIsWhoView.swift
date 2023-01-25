@@ -10,6 +10,10 @@ struct WhoIsWhoView: View {
     @State private var flipped:Bool = true
     @State public var someText:String = ""
     @State public var someIcon:String = ""
+    
+    //    @State public var someText:String = s.getName(index: currentIndex)
+    //    @State public var someIcon:String = s.getIcon(index: currentIndex)
+    
     var body: some View {
         VStack{
             Spacer()
@@ -24,6 +28,7 @@ struct WhoIsWhoView: View {
                     }
                     
                 }
+                
                 .rotation3DEffect(.degrees(degrees), axis: (x: 0.0, y: 1.0, z: 0.0))
                 
             }.onTapGesture {
@@ -36,7 +41,7 @@ struct WhoIsWhoView: View {
             }
             Spacer()
             Button{
-              
+                
                 if flipped == false{
                     withAnimation{
                         degrees += 180
@@ -45,10 +50,20 @@ struct WhoIsWhoView: View {
                     
                 }
                 self.nextPerson()
-                self.currentIndex += 1
+               
                 
             }label: {
-                if self.currentIndex == s.countAllGamers(){
+                if self.currentIndex <= s.countAllGamers()-1{
+                    Text("Следующий игрок")
+                        .frame(maxWidth: 270, minHeight: 40)
+                        .background(Color.gray)
+                        .cornerRadius(10)
+                        .foregroundColor(Color("button_black_white"))
+                        .shadow(radius: 15)
+                    
+                }else{
+                    
+                    
                     NavigationLink(destination: FinalView(s:s)) {
                         Text("Начать игру")
                             .frame(maxWidth: 270, minHeight: 40)
@@ -57,13 +72,7 @@ struct WhoIsWhoView: View {
                             .foregroundColor(Color("button_black_white"))
                             .shadow(radius: 15)
                     }
-                }else{
-                    Text("Следующий игрок")
-                        .frame(maxWidth: 270, minHeight: 40)
-                        .background(Color.gray)
-                        .cornerRadius(10)
-                        .foregroundColor(Color("button_black_white"))
-                        .shadow(radius: 15)
+                    
                     
                 }
             }
@@ -71,7 +80,9 @@ struct WhoIsWhoView: View {
             Spacer()
         }
         .navigationBarHidden(true)
-        
+        .onAppear{
+            self.nextPerson()
+        }
         
         
     }
@@ -79,6 +90,7 @@ struct WhoIsWhoView: View {
     func nextPerson(){
         someText = s.getName(index: currentIndex)
         someIcon = s.getIcon(index: currentIndex)
+        self.currentIndex += 1
     }
 }
 
