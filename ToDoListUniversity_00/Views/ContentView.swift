@@ -8,39 +8,43 @@ struct ContentView: View {
     @State private var showEditView = false
     @ObservedObject var me = ExampleCoreData()
     var body: some View {
-        
-        VStack {
-            ChangeView{
-                VStack{
-                    if wichView == 0{
-                        List{
-                            VStack{
-                                Text(me.name ?? "someOne")
-                                Text(me.desc ?? "someDesc")
-                            }  
+        ZStack{
+            VStack {
+                ChangeView{
+                    VStack{
+                        if wichView == 0{
+                            List{
+                                VStack{
+                                    Text(me.name)
+                                    Text(me.desc)
+                                }
+                            }
+                        }else if wichView == 1{
+                            CalendarView()
+                        }else if wichView == 2{
+                            FocuseView()
+                        }else {
+                            ProfileView()
                         }
-                    }else if wichView == 1{
-                        CalendarView()
-                    }else if wichView == 2{
-                        FocuseView()
-                    }else {
-                        ProfileView()
                     }
                 }
+                Spacer()
+                VStack{
+                    TapBarView(wichView: $wichView, showEditView: $showEditView)
+                        .padding(.bottom, 0)
+                    
+                }
             }
-            Spacer()
-            VStack{
-                TapBarView(wichView: $wichView, showEditView: $showEditView)
-                
-            }
+            AddNewTaskView(showEditView: $showEditView)
+                .offset(y: showEditView ? 0: 600)
+                .animation(.spring())
+            
             
         }
-        .sheet(isPresented: $showEditView){
-            AddNewTaskView()
-        }
-        
-        
     }
+    
+    
+    
     func deleteTask (at offsets: IndexSet) {
         for offset in offsets {
             let t = tasks[offset]
@@ -48,30 +52,16 @@ struct ContentView: View {
             try? moc.save()
         }
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
 }
 
 
-
-//                    Button("add"){
-//                        let taskName = ["read", "write", "do"]
-//                        let taskDesk = ["book", "exersices"]
-//
-//                        let choseTaskName = taskName.randomElement()
-//                        let choseTaskDesc = taskDesk.randomElement()
-//
-//                        let task = Task(context: moc)
-//                        task.id = UUID()
-//                        task.name = ("\(String(describing: choseTaskName))")
-//                        task.desc = ("\(String(describing: choseTaskDesc))")
-//
-//                        try? moc.save()
-//                    }
 
 //
 //List{
