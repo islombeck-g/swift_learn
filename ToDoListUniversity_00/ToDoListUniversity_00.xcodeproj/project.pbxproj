@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A61C21C22983D20100A8B2F9 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61C21C12983D20100A8B2F9 /* CategoryView.swift */; };
 		A64D6371297EEE9700873D4F /* ToDoListUniversity_00App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D6370297EEE9700873D4F /* ToDoListUniversity_00App.swift */; };
 		A64D6373297EEE9700873D4F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D6372297EEE9700873D4F /* ContentView.swift */; };
 		A64D6375297EEE9800873D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A64D6374297EEE9800873D4F /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A61C21C12983D20100A8B2F9 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		A64D636D297EEE9700873D4F /* ToDoListUniversity_00.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListUniversity_00.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A64D6370297EEE9700873D4F /* ToDoListUniversity_00App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListUniversity_00App.swift; sourceTree = "<group>"; };
 		A64D6372297EEE9700873D4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,14 +99,9 @@
 		A64D6383297EF8DF00873D4F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A67812EF2982A94B00F03783 /* AuxiliaryView */,
 				A64D6372297EEE9700873D4F /* ContentView.swift */,
-				A6556A9129807A9A0057D44D /* AddNewTaskView.swift */,
-				A6556A8B298069DB0057D44D /* CalendarView.swift */,
-				A6556A8D29806AD10057D44D /* FocuseView.swift */,
-				A6556A8F29806B430057D44D /* ProfileView.swift */,
-				A661FE5D29813341003F2823 /* ChangeView.swift */,
-				A661FE5F298136FD003F2823 /* TapBarView.swift */,
+				A6B0D9C3298461D000A70C54 /* TapBarViews */,
+				A67812EF2982A94B00F03783 /* AuxiliaryView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -129,10 +126,24 @@
 		A67812EF2982A94B00F03783 /* AuxiliaryView */ = {
 			isa = PBXGroup;
 			children = (
+				A661FE5D29813341003F2823 /* ChangeView.swift */,
 				A67812F02982A9AF00F03783 /* CustomCornersView.swift */,
 				A6AF59742982F7D50091EC94 /* PriorityView.swift */,
+				A61C21C12983D20100A8B2F9 /* CategoryView.swift */,
 			);
 			path = AuxiliaryView;
+			sourceTree = "<group>";
+		};
+		A6B0D9C3298461D000A70C54 /* TapBarViews */ = {
+			isa = PBXGroup;
+			children = (
+				A661FE5F298136FD003F2823 /* TapBarView.swift */,
+				A6556A9129807A9A0057D44D /* AddNewTaskView.swift */,
+				A6556A8B298069DB0057D44D /* CalendarView.swift */,
+				A6556A8D29806AD10057D44D /* FocuseView.swift */,
+				A6556A8F29806B430057D44D /* ProfileView.swift */,
+			);
+			path = TapBarViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +230,7 @@
 				A6556A9029806B430057D44D /* ProfileView.swift in Sources */,
 				A64D6380297EEECE00873D4F /* CoreData.xcdatamodeld in Sources */,
 				A6AF59732982EB830091EC94 /* Categories.swift in Sources */,
+				A61C21C22983D20100A8B2F9 /* CategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

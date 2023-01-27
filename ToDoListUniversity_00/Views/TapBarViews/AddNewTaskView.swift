@@ -5,28 +5,25 @@ import SwiftUI
 struct AddNewTaskView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var tasks:FetchedResults<Task>
-    @Environment(\.dismiss) var dismiss
-    @State private var taskNameEnter = ""
-    @State private var descriptionEnter = ""
-    @Binding var showEditView: Bool
+    @Binding var addTaskView: Bool
     
     
     @State var name:String = ""
     @State var desc:String = ""
-    @State var category:Int32?
+    @State var category:String = "University"
     @State var creatioDate:Date?
     @State var taskPriority:Int = 5
     @State var executionDate:Date?
-    
-    
     @State private var scheduleTime = Date()
+    @State private var scheduleDate = Date()
+    
     @State var showPriorityView = false
+    @State var showCategoryView = false
     var body: some View {
         ZStack{
             VStack{
                 Spacer()
                 VStack{
-                    
                     Spacer()
                     TextField(
                         "Enter task name",
@@ -59,56 +56,75 @@ struct AddNewTaskView: View {
                         }label: {
                             Image(systemName: "calendar")
                                 .font(.title3)
-                                .overlay{ //MARK: Place the DatePicker in the overlay extension
+                                .overlay{
                                     DatePicker(
                                         "",
-                                        selection: $scheduleTime,
+                                        selection: $scheduleDate,
                                         displayedComponents: [.date]
                                     )
-                                    .blendMode(.destinationOver) //MARK: use this extension to keep the clickable functionality
-                                    
+                                    .blendMode(.destinationOver)
                                 }
                         }
                         Spacer().frame(width:20)
                         Button{
-                            //
                         }label: {
-                            
                             Image(systemName: "clock")
                                 .font(.title3)
-                                .overlay{ //MARK: Place the DatePicker in the overlay extension
+                                .overlay{
                                     DatePicker(
                                         "",
                                         selection: $scheduleTime,
                                         displayedComponents: [.hourAndMinute]
                                     )
-                                    .blendMode(.destinationOver) //MARK: use this extension to keep the clickable functionality
-                                    
+                                    .blendMode(.destinationOver)
                                 }
                         }
                         Spacer().frame(width:20)
                         Button{
                             
+                            if self.showPriorityView == true{
+                                self.showPriorityView.toggle()
+                            }
+                            
+                            showCategoryView.toggle()
                         }label: {
                             Image(systemName: "bookmark")
                         }
                         Spacer().frame(width:20)
                         Button{
+                            if self.showCategoryView == true{
+                                self.showCategoryView.toggle()
+                            }
                             self.showPriorityView.toggle()
                         }label: {
                             Image(systemName: "flag")
                         }
                         Spacer().frame(width: 160)
                         Button{
-                            dismiss()
-                           showEditView.toggle()
+                            if (name != "" && desc != ""){
+                                let task = Task(context: moc)
+                                task.id = UUID()
+                                task.name = name
+                                task.desc = desc
+                                task.category = category
+                                task.taskPriority = Int32(taskPriority)
+                                task.creationDate = Date.now
+                                task.scheduleTime = scheduleTime
+                                task.scheduleDate = scheduleDate
+                                do {
+                                    try moc.save()
+                                } catch {
+                                    print(error.localizedDescription)
+                                }
+                            }
+                            if showCategoryView == true{self.showCategoryView.toggle()}
+                            if showPriorityView == true{self.showPriorityView.toggle()}
+                            self.addTaskView.toggle()
                         }label: {
                             Image(systemName: "chevron.right.circle")
                         }
-                        
                     }.foregroundColor(Color.white)
                         .padding(.bottom, 25)
-                    
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 235)
@@ -116,29 +132,19 @@ struct AddNewTaskView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
             }.padding(.bottom, -34)
             
-            PriorityView(selectedNumber: $taskPriority)
-                         .offset(y: showPriorityView ? 0 : 800)
-                         .animation(.spring())
+            PriorityView(selectedNumber: $taskPriority, showPriorityView: $showPriorityView)
+                .offset(y: showPriorityView ? 0 : 800)
+                .animation(.spring())
+            CategoryView(selectedNumber: $category, showCategoryView: $showCategoryView)
+                . offset(y: showCategoryView ? 0 : 800)
+                .animation(.spring())
+            
         }
         
         
     }
 }
-//
 
-//    func checkAge(date: Date) -> Bool  {
-//        let today = Date()
-//        let diffs = Calendar.current.dateComponents([.year], from: date, to: today)
-//        let formatter = DateComponentsFormatter()
-//        let outputString = formatter.string(from: diffs)
-//        self.ageFilter = outputString!.filter("0123456789.".contains)
-//        let ageTest = Int(self.ageFilter) ?? 0
-//        if ageTest > 18 {
-//            return false
-//        }else{
-//            return true
-//        }
-//    }
 
 
 

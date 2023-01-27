@@ -2,9 +2,10 @@
 import SwiftUI
 
 struct FocuseView: View {
+    var me = "ssss"
     var body: some View {
         VStack{
-            Text("FocusView")
+            Text("FocusView \(me)")
             Image(systemName: "clock")
         }
         

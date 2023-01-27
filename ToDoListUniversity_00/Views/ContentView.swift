@@ -2,10 +2,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var tasks:FetchedResults<Task>
+    //    @Environment(\.managedObjectContext) var moc
+    //    @FetchRequest(sortDescriptors: []) var tasks:FetchedResults<Task>
     @State var wichView:Int = 0
-    @State private var showEditView = false
+    @State private var addTaskView = false
     @ObservedObject var me = ExampleCoreData()
     var body: some View {
         ZStack{
@@ -30,13 +30,13 @@ struct ContentView: View {
                 }
                 Spacer()
                 VStack{
-                    TapBarView(wichView: $wichView, showEditView: $showEditView)
+                    TapBarView(wichView: $wichView, addTaskView: $addTaskView)
                         .padding(.bottom, 0)
                     
                 }
             }
-            AddNewTaskView(showEditView: $showEditView)
-                .offset(y: showEditView ? 0: 600)
+            AddNewTaskView(addTaskView: $addTaskView)
+                .offset(y: addTaskView ? 0: 600)
                 .animation(.spring())
             
             
@@ -45,21 +45,21 @@ struct ContentView: View {
     
     
     
-    func deleteTask (at offsets: IndexSet) {
-        for offset in offsets {
-            let t = tasks[offset]
-            moc.delete(t)
-            try? moc.save()
-        }
-    }
-    
+//    func deleteTask (at offsets: IndexSet) {
+//        for offset in offsets {
+//            let t = tasks[offset]
+//            moc.delete(t)
+//            try? moc.save()
+//        }
+//    }
+}
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             ContentView()
         }
     }
-}
+
 
 
 

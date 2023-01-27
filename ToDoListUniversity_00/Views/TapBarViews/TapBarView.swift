@@ -1,15 +1,9 @@
-//
-//  TapBarView.swift
-//  ToDoListUniversity_00
-//
-//  Created by Islombek Gofurov on 25.01.2023.
-//
 
 import SwiftUI
 
 struct TapBarView: View {
     @Binding var wichView:Int
-    @Binding var showEditView:Bool
+    @Binding var addTaskView:Bool
     var body: some View {
         ZStack{
             HStack{
@@ -82,7 +76,7 @@ struct TapBarView: View {
             .background(Color.gray)
             
             Button{
-                self.showEditView.toggle()
+                self.addTaskView.toggle()
             }label: {
                 Image(systemName: "plus")
                     .padding()

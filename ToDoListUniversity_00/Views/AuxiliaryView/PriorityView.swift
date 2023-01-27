@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PriorityView: View {
     @Binding var selectedNumber: Int
+    @Binding var showPriorityView: Bool
     //@State private var selectedNumber = 5
     var body: some View {
         VStack{
@@ -30,16 +31,21 @@ struct PriorityView: View {
                             .onTapGesture {
                                 self.selectedNumber = number
                             }
-                        Text("\(number)")
-                            .foregroundColor(.white)
-                            .font(.title)
+                        VStack{
+                            Image(systemName: "flag")
+                            Text("\(number)")
+                                
+                        }
+                        .foregroundColor(.white)
+                        .font(.title)
+                        
                     }
                 }
                 Spacer()
                 
                 HStack{
                     Button{
-                        
+                        showPriorityView.toggle()
                     }label: {
                         Image(systemName: "chevron.right.circle")
                             .foregroundColor(Color.white)
