@@ -2,8 +2,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    //    @Environment(\.managedObjectContext) var moc
-    //    @FetchRequest(sortDescriptors: []) var tasks:FetchedResults<Task>
+        @Environment(\.managedObjectContext) var moc
+        @FetchRequest(sortDescriptors: []) var tasks:FetchedResults<Task>
     @State var wichView:Int = 0
     @State private var addTaskView = false
     @ObservedObject var me = ExampleCoreData()

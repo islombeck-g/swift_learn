@@ -1,6 +1,13 @@
 
 import SwiftUI
 
+
+
+
+
+
+
+
 struct TapBarView: View {
     @Binding var wichView:Int
     @Binding var addTaskView:Bool
@@ -78,7 +85,7 @@ struct TapBarView: View {
             Button{
                 self.addTaskView.toggle()
             }label: {
-                Image(systemName: "plus")
+                Image(systemName: " ")
                     .padding()
                     .font(.system(size: 25))
             }

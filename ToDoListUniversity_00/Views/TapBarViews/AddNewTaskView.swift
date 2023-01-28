@@ -3,11 +3,9 @@ import SwiftUI
 
 
 struct AddNewTaskView: View {
-    @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var tasks:FetchedResults<Task>
+
     @Binding var addTaskView: Bool
-    
-    
+
     @State var name:String = ""
     @State var desc:String = ""
     @State var category:String = "University"
@@ -102,20 +100,7 @@ struct AddNewTaskView: View {
                         Spacer().frame(width: 160)
                         Button{
                             if (name != "" && desc != ""){
-                                let task = Task(context: moc)
-                                task.id = UUID()
-                                task.name = name
-                                task.desc = desc
-                                task.category = category
-                                task.taskPriority = Int32(taskPriority)
-                                task.creationDate = Date.now
-                                task.scheduleTime = scheduleTime
-                                task.scheduleDate = scheduleDate
-                                do {
-                                    try moc.save()
-                                } catch {
-                                    print(error.localizedDescription)
-                                }
+                                saveData()
                             }
                             if showCategoryView == true{self.showCategoryView.toggle()}
                             if showPriorityView == true{self.showPriorityView.toggle()}
@@ -143,6 +128,23 @@ struct AddNewTaskView: View {
         
         
     }
+    func saveData(){
+//        let task = Task(context: moc)
+//        task.id = UUID()
+//        task.name = name
+//        task.desc = desc
+//        task.category = category
+//        task.taskPriority = Int32(taskPriority)
+//        task.creationDate = Date.now
+//        task.scheduleTime = scheduleTime
+//        task.scheduleDate = scheduleDate
+//        do {
+//            try moc.save()
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+    }
+    
 }
 
 
