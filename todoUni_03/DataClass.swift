@@ -1,9 +1,3 @@
-//
-//  DataClass.swift
-//  todoUni_03
-//
-//  Created by Islombek Gofurov on 28.01.2023.
-//
 
 import Foundation
 
