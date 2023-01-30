@@ -1,9 +1,3 @@
-//
-//  PriorityView.swift
-//  ToDoListUniversity_00
-//
-//  Created by Islombek Gofurov on 26.01.2023.
-//
 
 import SwiftUI
 
@@ -41,22 +35,22 @@ struct PriorityView: View {
                         
                     }
                 }
-                Spacer()
+//                Spacer()
                 
-                HStack{
-                    Button{
-                        showPriorityView.toggle()
-                    }label: {
-                        Image(systemName: "chevron.right.circle")
-                            .foregroundColor(Color.white)
-                            .frame(width:150, height: 80)
-                            .background(Color.purple)
-                            .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
-                        
-                        
-                        
-                    }
-                }
+//                HStack{
+//                    Button{
+//                        showPriorityView.toggle()
+//                    }label: {
+//                        Image(systemName: "chevron.right.circle")
+//                            .foregroundColor(Color.white)
+//                            .frame(width:150, height: 80)
+//                            .background(Color.purple)
+//                            .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
+//
+//
+//
+//                    }
+//                }
             }
             //.padding(.bottom, 100)
         }

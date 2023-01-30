@@ -9,17 +9,21 @@
 /* Begin PBXBuildFile section */
 		A63BA10D2985ACD60078E308 /* DataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63BA10C2985ACD60078E308 /* DataClass.swift */; };
 		A63BA10F2985ACE20078E308 /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63BA10E2985ACE20078E308 /* DataStruct.swift */; };
+		A66ADE85298853680034972E /* FocuseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66ADE84298853680034972E /* FocuseView.swift */; };
 		A66F9156298592FE0046D166 /* todoUni_03App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F9155298592FE0046D166 /* todoUni_03App.swift */; };
 		A66F9158298592FE0046D166 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F9157298592FE0046D166 /* MainView.swift */; };
 		A66F915A298593000046D166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A66F9159298593000046D166 /* Assets.xcassets */; };
 		A66F915E298593000046D166 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A66F915D298593000046D166 /* Preview Assets.xcassets */; };
 		A66F91652985950E0046D166 /* TapBarMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F91642985950E0046D166 /* TapBarMainView.swift */; };
 		A66F9167298595320046D166 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F9166298595320046D166 /* AddTaskView.swift */; };
+		A69E83BD2987EEC40061A706 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E83BC2987EEC40061A706 /* TaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A63BA10C2985ACD60078E308 /* DataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataClass.swift; sourceTree = "<group>"; };
 		A63BA10E2985ACE20078E308 /* DataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStruct.swift; sourceTree = "<group>"; };
+		A66ADE84298853680034972E /* FocuseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocuseView.swift; sourceTree = "<group>"; };
+		A66ADE862988643E0034972E /* todoUni-03-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "todoUni-03-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A66F9152298592FE0046D166 /* todoUni_03.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todoUni_03.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A66F9155298592FE0046D166 /* todoUni_03App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoUni_03App.swift; sourceTree = "<group>"; };
 		A66F9157298592FE0046D166 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -28,6 +32,7 @@
 		A66F915D298593000046D166 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A66F91642985950E0046D166 /* TapBarMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarMainView.swift; sourceTree = "<group>"; };
 		A66F9166298595320046D166 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
+		A69E83BC2987EEC40061A706 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +67,7 @@
 		A66F9154298592FE0046D166 /* todoUni_03 */ = {
 			isa = PBXGroup;
 			children = (
+				A66ADE862988643E0034972E /* todoUni-03-Info.plist */,
 				A66F9168298595630046D166 /* Views */,
 				A66F9155298592FE0046D166 /* todoUni_03App.swift */,
 				A66F9159298593000046D166 /* Assets.xcassets */,
@@ -85,6 +91,8 @@
 				A66F9157298592FE0046D166 /* MainView.swift */,
 				A66F91642985950E0046D166 /* TapBarMainView.swift */,
 				A66F9166298595320046D166 /* AddTaskView.swift */,
+				A69E83BC2987EEC40061A706 /* TaskView.swift */,
+				A66ADE84298853680034972E /* FocuseView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -160,7 +168,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A63BA10F2985ACE20078E308 /* DataStruct.swift in Sources */,
+				A69E83BD2987EEC40061A706 /* TaskView.swift in Sources */,
 				A63BA10D2985ACD60078E308 /* DataClass.swift in Sources */,
+				A66ADE85298853680034972E /* FocuseView.swift in Sources */,
 				A66F9158298592FE0046D166 /* MainView.swift in Sources */,
 				A66F91652985950E0046D166 /* TapBarMainView.swift in Sources */,
 				A66F9156298592FE0046D166 /* todoUni_03App.swift in Sources */,
@@ -293,6 +303,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "todoUni-03-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -331,6 +342,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "todoUni-03-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

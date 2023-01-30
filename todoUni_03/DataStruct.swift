@@ -9,5 +9,6 @@ struct TodoItem: Identifiable, Decodable, Encodable {
     var priority: String
     var categoryName: String
     var categoryImg: String
+    var doneOrNor:Bool
 
 }

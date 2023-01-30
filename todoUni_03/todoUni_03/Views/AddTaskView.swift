@@ -90,6 +90,7 @@ struct AddTaskView: View {
                                     
                                     Button{
                                         self.selectedCategory = self.elems[index]
+                                        self.selectedCategoryImg = self.pictOfElems[index]
                                     }label: {
                                         HStack{
                                             Image(systemName: pictOfElems[index])
@@ -107,6 +108,7 @@ struct AddTaskView: View {
                                 ForEach(3..<6) { index in
                                     Button {
                                         self.selectedCategory = self.elems[index]
+                                        self.selectedCategoryImg = self.pictOfElems[index]
                                     }label: {
                                         HStack{
                                             Image(systemName: pictOfElems[index])
@@ -123,6 +125,7 @@ struct AddTaskView: View {
                                 ForEach(6..<8) { index in
                                     Button(action: {
                                         self.selectedCategory = self.elems[index]
+                                        self.selectedCategoryImg = self.pictOfElems[index]
                                     }) {
                                         HStack{
                                             Image(systemName: pictOfElems[index])
@@ -154,14 +157,15 @@ struct AddTaskView: View {
                     Spacer()
                     Button{
                         
-                        if(taskName != "" && taskDesc != "" && selectedPriority != nil && selectedCategory != nil){
+                        if(taskName != ""){
                             let newItem = TodoItem(
                                 name: taskName,
                                 desc: taskDesc,
                                 sheduleDate: taskDate,
-                                priority: selectedPriority ?? "green",
-                                categoryName: selectedCategory ?? "University",
-                                categoryImg: selectedCategoryImg ?? "graduationcap")
+                                priority: selectedPriority ?? "",
+                                categoryName: selectedCategory ?? "",
+                                categoryImg: selectedCategoryImg ?? "", doneOrNor: false
+                            )
                                 
                             todoList.add(item: newItem)
                         }
@@ -185,6 +189,12 @@ struct AddTaskView: View {
                     }
                 }.ignoresSafeArea()
                     .padding(.bottom, -34)
+            }
+            .toolbar{
+                Button{ self.showAddView.toggle()}label:{
+                    Image(systemName: "xmark")
+                        .foregroundColor(Color("dark"))
+                }
             }
         }
     }
