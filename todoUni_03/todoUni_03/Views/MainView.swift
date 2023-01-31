@@ -4,13 +4,17 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject var todoList = TodoList()
     @State private var showAddView = false
+    @State private var showFocuseView =  false
     var body: some View {
         
         VStack {
             
             if showAddView{
                 AddTaskView(showAddView: $showAddView)
-            }else{
+            }else if showFocuseView{
+                FocuseView(showFocuseView: $showFocuseView)
+            }
+            else{
                 VStack{
                     Text("Reminders")
                         .foregroundColor(Color("light"))
@@ -18,7 +22,8 @@ struct MainView: View {
                         .fontWeight(.black)
                         .padding(.leading, -150)
                         .padding(.top, 40)
-                    List{
+                    ScrollView{
+                        
                         Section(
                             header:
                                 Text("today")
@@ -40,8 +45,10 @@ struct MainView: View {
                                     TaskView(item: item)
                                     //Text(item.name)
                                 }
+                                .padding(.horizontal, 33.0)
                                 
                             }
+                            
                             .onDelete { offsets in
                                 todoList.remove(at: offsets)
                             }
@@ -61,11 +68,11 @@ struct MainView: View {
                         //
                     }
                 }
-                Spacer()
+               
                 
                 ZStack{
-                    TabBarMain(showAddView: $showAddView)
-                }
+                   TabBarMain(showAddView: $showAddView, showFocuseView: $showFocuseView)
+                }.padding(.bottom, 45)
             }
         }
         .ignoresSafeArea()

@@ -153,6 +153,8 @@ struct AddTaskView: View {
                 .padding(.horizontal, 30)
                 .foregroundColor(Color("light"))
                 Spacer()
+                
+                
                 HStack{
                     Spacer()
                     Button{
@@ -176,24 +178,30 @@ struct AddTaskView: View {
                             Rectangle()
                                 .fill(Color("dark"))
                                 .frame(width: 140, height: 60)
-                                .modifier(RoundedCorner(corners: [.topLeft], radius: 20))
+                                .modifier(RoundedCorner(corners: [.topLeft, .bottomLeft], radius: 15))
                             HStack{
                                 Image(systemName: "plus")
                                 Text("add")
                             }.foregroundColor(Color.white)
                                 .font(.title2)
+                               
                             
                             
                         }
+                        .padding(.bottom, 45)
                         
                     }
                 }.ignoresSafeArea()
                     .padding(.bottom, -34)
             }
             .toolbar{
-                Button{ self.showAddView.toggle()}label:{
+                Button{
+                    self.showAddView.toggle()
+                    
+                }label:{
                     Image(systemName: "xmark")
                         .foregroundColor(Color("dark"))
+                        .padding(.trailing)
                 }
             }
         }
@@ -206,7 +214,7 @@ struct AddTaskView: View {
 //    }
 //}
 //
-
+//
 
 
 

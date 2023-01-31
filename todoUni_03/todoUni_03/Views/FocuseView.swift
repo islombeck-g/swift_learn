@@ -1,11 +1,27 @@
 
 import SwiftUI
 import UserNotifications
+
 struct FocuseView: View {
+    @Binding var showFocuseView: Bool
     var body: some View {
-        ZStack{
-            AllMagicIsHere()
+        NavigationView{
+            ZStack{
+                AllMagicIsHere()
+            }
+            .toolbar{
+                Button{
+                    self.showFocuseView.toggle()
+                    
+                }label:{
+                    Image(systemName: "xmark")
+                        .foregroundColor(Color("dark"))
+                        .padding(.trailing)
+                        
+                }
+            }
         }
+        
     }
 }
 
@@ -118,11 +134,11 @@ struct AllMagicIsHere: View{
 
 
 
-struct FocuseView_Previews: PreviewProvider {
-    static var previews: some View {
-        FocuseView()
-    }
-}
+//struct FocuseView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FocuseView()
+//    }
+//}
 
 
 //Чтобы узнать увеличенное расстояние, необходимо разделить время пути на скорость: 28800 sec / 15 sec/distance = 1920 distance. Таким образом, расстояние должно быть увеличено в 1920 раз.

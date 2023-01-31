@@ -25,18 +25,37 @@ struct RoundedCorner: ViewModifier {
 
 struct TabBarMain: View {
     @Binding var showAddView: Bool
+   @Binding var showFocuseView: Bool
     //@State private var showAddView = false
     var body: some View {
         HStack{
+            ZStack{
+                Rectangle()
+                    .fill(Color("dark"))
+                    .frame(width: 60, height: 60)
+                    .modifier(RoundedCorner(corners: [.topRight, .bottomRight], radius: 15  ))
+                
+                Button{
+                  self.showFocuseView.toggle()
+                }label: {
+                    HStack{
+                        Image(systemName: "timer")
+                            .font(.system(size: 25))
+                    }
+                    .foregroundColor(Color.white)
+                    
+                    
+                }
+            }
             Spacer()
             ZStack{
                 Rectangle()
                     .fill(Color("dark"))
                     .frame(width: 180, height: 60)
-                    .modifier(RoundedCorner(corners: [.topLeft], radius: 20))
+                    .modifier(RoundedCorner(corners: [.topLeft, .bottomLeft], radius: 15  ))
                 
                 Button{
-                    self.showAddView.toggle()
+                   self.showAddView.toggle()
                 }label: {
                     HStack{
                         Image(systemName: "plus")
@@ -48,6 +67,7 @@ struct TabBarMain: View {
                 }
             }
         }
+        .background(Color.clear)
         
         
     }
@@ -58,4 +78,4 @@ struct TabBarMain: View {
 //        TabBarMain()
 //    }
 //}
-//
+
