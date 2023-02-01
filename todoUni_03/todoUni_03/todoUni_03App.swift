@@ -5,7 +5,11 @@ import SwiftUI
 struct todoUni_03App: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(data: DataController())
         }
     }
 }
+
+
+
+

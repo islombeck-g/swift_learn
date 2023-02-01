@@ -1,10 +1,13 @@
 
 import SwiftUI
-
+import CoreData
 
 
 
 struct AddTaskView: View {
+    let data: DataController
+    
+    
     @Binding var showAddView: Bool
     
     
@@ -17,7 +20,6 @@ struct AddTaskView: View {
     @State private var selectedCategory: String? = nil
     @State private var selectedPriority: String? = nil
     @State private var selectedCategoryImg:String? = nil
-    @ObservedObject var todoList = TodoList()
     
     var body: some View {
         NavigationView{
@@ -160,16 +162,17 @@ struct AddTaskView: View {
                     Button{
                         
                         if(taskName != ""){
-                            let newItem = TodoItem(
-                                name: taskName,
-                                desc: taskDesc,
-                                sheduleDate: taskDate,
-                                priority: selectedPriority ?? "",
-                                categoryName: selectedCategory ?? "",
-                                categoryImg: selectedCategoryImg ?? "", doneOrNor: false
-                            )
-                                
-                            todoList.add(item: newItem)
+//                            let newItem = TodoItem(
+//                                name: taskName,
+//                                desc: taskDesc,
+//                                sheduleDate: taskDate,
+//                                priority: selectedPriority ?? "",
+//                                categoryName: selectedCategory ?? "",
+//                                categoryImg: selectedCategoryImg ?? "", doneOrNor: false
+//                            )
+                        
+                            data.saveData(taskName: taskName, taskDesc: taskDesc, taskDate: taskDate, selectedPriority: selectedPriority ?? "green", selectedCategory: selectedCategory ?? "University", selectedCategoryImg: selectedCategoryImg ?? "graduationcap")
+                          
                         }
                         
                         self.showAddView.toggle()
