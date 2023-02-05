@@ -6,33 +6,24 @@ import CoreData
 
 struct AddTaskView: View {
     let data: DataController
-    
-    
     @Binding var showAddView: Bool
-    
-    
     @State private var taskName:String = ""
     @State private var taskDesc:String = ""
     @State private var taskDate:Date = .init()
-    
     let elems = ["Project", "Work", "Movie", "Music", "Health", "Home", "Sport", "University"]
     let pictOfElems = ["folder", "briefcase", "popcorn","music.note.list", "bolt.heart","house","dumbbell","graduationcap"]
     @State private var selectedCategory: String? = nil
     @State private var selectedPriority: String? = nil
     @State private var selectedCategoryImg:String? = nil
-    
     var body: some View {
         NavigationView{
             VStack{
                 VStack(alignment: .leading, spacing: 10.0){
-                    
                     Text("New Task")
                         .font(.largeTitle)
                         .fontWeight(.black)
-                    
                     Group{
                         Text("Name")
-                        
                         TextField("EnterTaskName", text: $taskName)
                             .padding(13)
                             .overlay(
@@ -46,7 +37,6 @@ struct AddTaskView: View {
                             Image(systemName: "alarm.waves.left.and.right")
                                 .padding(.leading, -165.0)
                                 .font(.title)
-                            
                             DatePicker("", selection: $taskDate, in:Date()...)
                         }
                     }
@@ -81,7 +71,6 @@ struct AddTaskView: View {
                                     .fill(.red)
                                     .frame(width: self.selectedPriority == "red" ? 30 : 25, height: self.selectedPriority == "red" ? 30 : 25, alignment: .center)
                             }
-                            
                         }
                     }
                     Group{
@@ -89,7 +78,6 @@ struct AddTaskView: View {
                         VStack{
                             HStack{
                                 ForEach(0..<3) { index in
-                                    
                                     Button{
                                         self.selectedCategory = self.elems[index]
                                         self.selectedCategoryImg = self.pictOfElems[index]
@@ -102,7 +90,6 @@ struct AddTaskView: View {
                                         .background(self.selectedCategory == self.elems[index] ? Color("light") : Color.white)
                                         .foregroundColor(self.selectedCategory == self.elems[index] ? Color.white : Color.gray)
                                         .cornerRadius(10)
-                                        
                                     }
                                 }
                             }
@@ -149,32 +136,16 @@ struct AddTaskView: View {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color("light"), lineWidth: 1.5)
                         )
-                    
-                    
                 }
                 .padding(.horizontal, 30)
                 .foregroundColor(Color("light"))
                 Spacer()
-                
-                
                 HStack{
                     Spacer()
                     Button{
-                        
                         if(taskName != ""){
-//                            let newItem = TodoItem(
-//                                name: taskName,
-//                                desc: taskDesc,
-//                                sheduleDate: taskDate,
-//                                priority: selectedPriority ?? "",
-//                                categoryName: selectedCategory ?? "",
-//                                categoryImg: selectedCategoryImg ?? "", doneOrNor: false
-//                            )
-                        
-                            data.saveData(taskName: taskName, taskDesc: taskDesc, taskDate: taskDate, selectedPriority: selectedPriority ?? "green", selectedCategory: selectedCategory ?? "University", selectedCategoryImg: selectedCategoryImg ?? "graduationcap")
-                          
+                            data.addToData(taskName: taskName, taskDesc: taskDesc, taskDate: taskDate, selectedPriority: selectedPriority ?? "green", selectedCategory: selectedCategory ?? "University", selectedCategoryImg: selectedCategoryImg ?? "graduationcap")
                         }
-                        
                         self.showAddView.toggle()
                     }label:{
                         ZStack{
@@ -187,12 +158,8 @@ struct AddTaskView: View {
                                 Text("add")
                             }.foregroundColor(Color.white)
                                 .font(.title2)
-                               
-                            
-                            
                         }
                         .padding(.bottom, 45)
-                        
                     }
                 }.ignoresSafeArea()
                     .padding(.bottom, -34)
@@ -200,7 +167,6 @@ struct AddTaskView: View {
             .toolbar{
                 Button{
                     self.showAddView.toggle()
-                    
                 }label:{
                     Image(systemName: "xmark")
                         .foregroundColor(Color("dark"))

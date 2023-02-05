@@ -3,23 +3,19 @@ import SwiftUI
 
 struct MainView: View {
     
-    let data: DataController
-    @State private var tasks:[Task] = [Task]()
+    @StateObject var data = DataController()
     @State private var showAddView = false
     @State private var showFocuseView =  false
     @State private var showTaskInfoView = false
-    
     @EnvironmentObject var focuseModel: FocuseModel
     var body: some View {
         NavigationView{
             VStack {
-                
                 if showAddView{
                     AddTaskView(data: DataController(), showAddView: $showAddView)
                 }else if showFocuseView{
                     FocuseView(showFocuseView: $showFocuseView)
                         .environmentObject(focuseModel)
-                        
                 }
                 else{
                     VStack{
@@ -29,62 +25,36 @@ struct MainView: View {
                             .fontWeight(.black)
                             .padding(.leading, -150)
                             .padding(.top, 40)
-                        ScrollView{
+                        List{
                             
                             Section(
-                                header: Text("tomorrow")
+                                header: Text("Today")
                                     .foregroundColor(Color("dark"))
                             ){
-                                
-                                ForEach(tasks, id: \.self){ task in
+                                ForEach($data.tasks, id: \.self){ task in
                                     //Text(task.name ?? "errorName")
-                                   
-                                    HStack{
-                                        Button{
-                                            task.doneOrNot.toggle()
-                                            // upgradeView()
-                                            
-                                        }label: {
-                                            if data.doneOrNor(task: task){
-                                                Image(systemName: "checkmark")
-                                            }else{
-                                                Image(systemName: "circle")
-                                            }
-                                            
-                                        }
-                                        .fontWeight(.black).padding()
-                                        .foregroundColor(Color("dark"))
+                                    NavigationLink(destination:TaskAllinformation(item: task, data: data)
+                                    ){
                                         TaskView(showTaskInfoView: $showTaskInfoView, item: task, data: data)
-                                            .padding(.leading, -15)
                                     }
-                                    
                                 }
-                                
                             }
                         }
-                        
+                        .id(UUID())
                         .listStyle(.plain)
                         .listRowBackground(Color.red)
-                        //                    .refreshable{
-                        //                        upgradeView()
-                        //                    }
-                    }.onAppear(perform: {
-                        upgradeView()
-                    })
-                    
-                    
-                    
+                    }
                     ZStack{
                         TabBarMain(showAddView: $showAddView, showFocuseView: $showFocuseView)
-                    }.padding(.bottom, 45)
+                    }
+                    .padding(.bottom, 45)
                 }
             }
             .ignoresSafeArea()
             .padding(.top)
         }
-    }
-    func upgradeView(){
-        tasks = data.getAllData()
+        
+        
     }
 }
 
@@ -99,3 +69,21 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
+
+
+
+
+//HStack{
+//    Button{
+//        task.doneOrNot.toggle()
+//        upgradeView()
+//    }label: {
+//        if data.doneOrNor(task: task){
+//            Image(systemName: "checkmark")
+//        }else{
+//            Image(systemName: "circle")
+//        }
+//
+//    }
+//    .fontWeight(.black).padding()
+//    .foregroundColor(Color("dark"))

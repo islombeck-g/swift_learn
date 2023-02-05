@@ -3,8 +3,11 @@ import CoreData
 import Foundation
 
 
-class DataController:ObservableObject{
+class DataController: ObservableObject{
     let container: NSPersistentContainer
+    @Published var tasks:[Task] = [Task]()
+    
+    
     
     init(){
         container = NSPersistentContainer(name: "DataModel")
@@ -14,9 +17,23 @@ class DataController:ObservableObject{
             }
             
         }
+        fetchTasks()
     }
     
-    func saveData(taskName:String, taskDesc:String, taskDate:Date, selectedPriority:String, selectedCategory:String, selectedCategoryImg: String){
+    func fetchTasks(){
+        let t = NSFetchRequest<Task>(entityName: "Task")
+        
+        do{
+            tasks = try container.viewContext.fetch(t)
+            
+        }catch let error{
+            print("Error is here. \(error)")
+        }
+        
+    }
+    
+    
+    func addToData(taskName:String, taskDesc:String, taskDate:Date, selectedPriority:String, selectedCategory:String, selectedCategoryImg: String){
         let task = Task(context: container.viewContext)
         task.id = UUID()
         task.name = taskName
@@ -26,32 +43,38 @@ class DataController:ObservableObject{
         task.categoryName = selectedCategory
         task.categoryImg = selectedCategoryImg
         task.doneOrNot = false
-        
-        do{
-            try container.viewContext.save()
-        }catch{
-         print("failedToSaveData \(error)")
-        }
-    }
-    func getAllData()->[Task]{
-        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-        do{
-           return try container.viewContext.fetch(fetchRequest)
-        }catch{
-            return []
-        }
+        saveData()
         
     }
-    func doneOrNor(task:Task)->Bool{
-        return task.doneOrNot
-    }
-    func changeDoneOrNot(task:Task){
-        task.doneOrNot.toggle()
-        print("some majic")
+    
+    func saveData(){
         do{
             try container.viewContext.save()
+            fetchTasks()
         }catch{
-         print("failedToSaveData \(error)")
+            print("failedToSaveData \(error)")
+        }
+    }
+    
+    
+    func deleteTaskItem(indexSet: IndexSet){
+        guard let index = indexSet.first else {return}
+        let task = tasks[index]
+        container.viewContext.delete(task)
+        saveData()
+    }
+    
+    func taskJustDone(item: Task){
+        item.doneOrNot.toggle()
+        saveData()
+    }
+    
+    func returnDoneOrNot(item: Task)-> Bool{
+        
+        if item.doneOrNot{
+            return true
+        }else{
+            return false
         }
     }
     
