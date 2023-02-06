@@ -1,6 +1,7 @@
 
 import CoreData
 import Foundation
+import SwiftUI
 
 
 class DataController: ObservableObject{
@@ -77,5 +78,19 @@ class DataController: ObservableObject{
             return false
         }
     }
+    
+    func getTaskDateOnly(task: Task) -> Bool {
+            
+            let today = Date()
+            let tomorrow = today.addingTimeInterval(60 * 60 * 24)
+            let taskDate = task.sheduleDate!
+           
+        if today < taskDate  && taskDate < tomorrow{
+                return true
+            }else {
+                return false
+            }
+        }
+
     
 }

@@ -2,14 +2,16 @@
 
 import SwiftUI
 
+
+
 struct TaskAllinformation: View {
     @Environment (\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @Binding var item: Task
+    @State var item: Task
     @State var data: DataController
     var exampleDate:Date = .init()
     var body: some View {
         ZStack{
-            ScrollView{   
+            ScrollView{
                 VStack{
                     Text(item.name ?? "error CoreData")
                         .frame(width: 360, height: 60, alignment: .topLeading)
@@ -121,7 +123,7 @@ struct TaskAllinformation: View {
                             .font(.title2)
                     }.frame(width: 140, height: 60)
                 }
-            } .position(x:330, y: 700)
+            } .position(x:330, y: 650)
                 .navigationBarBackButtonHidden(true)
         } .toolbar{
             Button{

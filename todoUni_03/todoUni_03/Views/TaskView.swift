@@ -2,10 +2,11 @@
 import SwiftUI
 
 
+
 struct TaskView: View {
     
     @Binding  var showTaskInfoView:Bool
-    @Binding var item: Task
+    @State var item: Task
     @State var data: DataController
     var exampleDate:Date = .init()
     var body: some View {
@@ -41,6 +42,7 @@ struct TaskView: View {
         return dateFormatter.string(from: item.sheduleDate ?? exampleDate)
     }
 }
+
 
 
 
