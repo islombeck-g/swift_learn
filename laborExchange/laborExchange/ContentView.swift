@@ -5,19 +5,27 @@ struct ContentView: View {
     @State private var someValue:Bool = false
     var body: some View {
         
-        
-        VStack{
-            ChangeView{
-                VStack{
-                    if someValue{
-                        MainMainView()
-                    }else{
-                        ProfileMainView()
+        NavigationView{
+            VStack{
+                ChangeView{
+                    VStack{
+                        if someValue{
+                            MainMainView()
+                        }else{
+                            ProfileMainView()
+                        }
                     }
                 }
             }
         }
-        
+    }
+}
+
+
+struct ChangeView<Content>: View where Content:View {
+    var content:()->Content
+    var body: some View {
+        content()
     }
 }
 
@@ -26,3 +34,7 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+//узнать про переходы в view
+//спросить почему кнопка не красится в красный цвет
+

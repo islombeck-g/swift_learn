@@ -1,9 +1,3 @@
-//
-//  MainMainView.swift
-//  laborExchange
-//
-//  Created by Islombek Gofurov on 12.02.2023.
-//
 
 import SwiftUI
 

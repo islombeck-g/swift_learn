@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A695E82A299A2A3600D7D436 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A695E829299A2A3600D7D436 /* EditProfileView.swift */; };
+		A6C6D16F299BB23F00F9F393 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C6D16E299BB23F00F9F393 /* TabBarView.swift */; };
 		A6FC914C29990F1400B0A7A7 /* laborExchangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC914B29990F1400B0A7A7 /* laborExchangeApp.swift */; };
 		A6FC914E29990F1400B0A7A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC914D29990F1400B0A7A7 /* ContentView.swift */; };
 		A6FC915029990F1500B0A7A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6FC914F29990F1500B0A7A7 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A695E829299A2A3600D7D436 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		A6C6D16E299BB23F00F9F393 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		A6FC914829990F1400B0A7A7 /* laborExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = laborExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FC914B29990F1400B0A7A7 /* laborExchangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = laborExchangeApp.swift; sourceTree = "<group>"; };
 		A6FC914D29990F1400B0A7A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,7 +64,9 @@
 				A6FC914B29990F1400B0A7A7 /* laborExchangeApp.swift */,
 				A6FC914D29990F1400B0A7A7 /* ContentView.swift */,
 				A6FC915929990F3100B0A7A7 /* ChangeView.swift */,
+				A695E829299A2A3600D7D436 /* EditProfileView.swift */,
 				A6FC915B29990FC400B0A7A7 /* ProfileMainView.swift */,
+				A6C6D16E299BB23F00F9F393 /* TabBarView.swift */,
 				A6FC915D2999101500B0A7A7 /* MainMainView.swift */,
 				A6FC914F29990F1500B0A7A7 /* Assets.xcassets */,
 				A6FC915129990F1500B0A7A7 /* Preview Content */,
@@ -146,10 +152,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A695E82A299A2A3600D7D436 /* EditProfileView.swift in Sources */,
 				A6FC915A29990F3100B0A7A7 /* ChangeView.swift in Sources */,
 				A6FC915E2999101500B0A7A7 /* MainMainView.swift in Sources */,
 				A6FC915C29990FC400B0A7A7 /* ProfileMainView.swift in Sources */,
 				A6FC914E29990F1400B0A7A7 /* ContentView.swift in Sources */,
+				A6C6D16F299BB23F00F9F393 /* TabBarView.swift in Sources */,
 				A6FC914C29990F1400B0A7A7 /* laborExchangeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
