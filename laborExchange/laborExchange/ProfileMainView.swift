@@ -2,7 +2,7 @@
 import SwiftUI
 
 struct ProfileMainView: View {
-    
+    @State var showEditView = false
     
     var body: some View {
         NavigationView{
@@ -18,26 +18,43 @@ struct ProfileMainView: View {
                             Text("Профиль")
                                 .position(x: geometry.size.width / 2, y: 20)
                             Spacer()
-                            Image(systemName: "ellipsis")
-                                .rotationEffect(Angle(degrees: 90))
-                                .foregroundColor(.black)
-                                .frame(width: 10, height: 30)
-                                .contextMenu{
-                                    
-                                    NavigationLink(destination: EditProfileView()){
-                                        Text("Редактировать профиль")
-                                    }
-                                    Button {
-                                        print("deleteAccountButton")
-                                    } label: {
-                                        Text("Удалить аккауни")
-                                            .foregroundColor(.red)//why not
-                                    }
-                                    
-                                    
-                                    
+                            Menu{
+                                
+                                Button{
+                                    showEditView.toggle()
+                                }label:{
+                                    Text("Редактировать профиль")
                                 }
-                                .position(x: geometry.size.width - 30, y: 20)
+                                Button(role: .destructive){}label:{
+                                    Text("Удалить аккаунт")
+                                }
+                            }label:{
+                                Image(systemName: "ellipsis")
+                                    .rotationEffect(Angle(degrees: 90))
+                                    .frame(width: 20, height: 30)
+                                    .foregroundColor(.black)
+                                
+                            }.position(x: geometry.size.width - 30, y: 20)
+                            //                            Image(systemName: "ellipsis")
+                            //                                .rotationEffect(Angle(degrees: 90))
+                            //                                .foregroundColor(.black)
+                            //                                .frame(width: 10, height: 30)
+                            //                                .contextMenu{
+                            //
+                            //                                    NavigationLink(destination: EditProfileView()){
+                            //                                        Text("Редактировать профиль")
+                            //                                    }
+                            //                                    Button {
+                            //                                        print("deleteAccountButton")
+                            //                                    } label: {
+                            //                                        Text("Удалить аккауни")
+                            //                                            .foregroundColor(.red)//why not
+                            //                                    }
+                            //
+                            //
+                            //
+                            //                                }
+                            //                                .position(x: geometry.size.width - 30, y: 20)
                         }
                         
                     }.frame(height: 44)
@@ -120,25 +137,27 @@ struct ProfileMainView: View {
                                     .padding(.top, 229)
                                 
                             }
-                            
-                            Text("Направление")
-                                .padding(.top, 241)
-                                .foregroundColor(.gray)
-                                .font(.system(size: 15))
-                            Text("Бизнес - информатика")
-                                .font(.system(size: 17))
-                                .lineLimit(1)
-                                .padding(.top, 262)
-                            Text("О себе")
-                                .font(.system(size: 20))
-                                .padding(.top, 294)
-                                .fontWeight(.bold)
-                            
-                            Text("Казанский (Приволжский) федеральный университет")
-                                .lineLimit(1)
-                                .font(.system(size: 17))
-                                .padding(.top, 323)
-                            
+                            Group{
+                                Text("Направление")
+                                    .padding(.top, 241)
+                                    .foregroundColor(.gray)
+                                    .font(.system(size: 15))
+                                Text("Бизнес - информатика")
+                                    .font(.system(size: 17))
+                                    .lineLimit(1)
+                                    .padding(.top, 262)
+                                Text("О себе")
+                                    .font(.system(size: 20))
+                                    .padding(.top, 294)
+                                    .fontWeight(.bold)
+                                
+                                Text("Казанский (Приволжский) федеральный университет")
+                                    .lineLimit(1)
+                                    .font(.system(size: 17))
+                                    .padding(.top, 323)
+                                
+                                
+                            }
                             
                         }
                     }
@@ -172,6 +191,11 @@ struct ProfileMainView: View {
                 }
                 Spacer()
             }
+            
+            
+            
+            
+            
             
         }
         

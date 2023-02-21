@@ -9,6 +9,7 @@ struct EditProfileView: View {
     @State private var patronymic:String = ""
     @State private var dateOfBirth:String = ""
     
+    @State private var elipsisViewShowButton:Bool = false
     var body: some View {
         NavigationView{
             ScrollView{
@@ -166,11 +167,23 @@ struct EditProfileView: View {
                         
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button{
+                        elipsisViewShowButton.toggle()
+                    }label:{
+                        Image(systemName: "ellipsis")
+                            .rotationEffect(Angle(degrees: 90))
+                            .foregroundColor(.black)
+                        
+                    }
+                }
                 
             }
             
         }
+        
     }
+    
 }
 
 struct EditProfileView_Previews: PreviewProvider {
