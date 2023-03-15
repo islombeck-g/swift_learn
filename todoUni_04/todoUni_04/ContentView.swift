@@ -1,21 +1,35 @@
-//
-//  ContentView.swift
-//  todoUni_04
-//
-//  Created by Islombek Gofurov on 03.03.2023.
-//
 
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var userRegistration:JsonWork
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            if !userRegistration.fil.files.isEmpty  {
+                VStack{
+                    List(userRegistration.fil.files){ dat in
+                        VStack{
+                            Text(dat.taskName)
+                        }
+                    }
+                }
+            }
+            else{
+                List{
+                    Text("ничего нет")
+                   
+                }.refreshable {
+                    print("refresh")
+                    userRegistration.getData()
+                }
+            }
         }
-        .padding()
+        .onAppear{
+            print("OnAppear")
+            print("\(userRegistration.userNameCONST)")
+            userRegistration.getData()
+        }
     }
 }
 
