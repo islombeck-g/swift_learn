@@ -7,21 +7,58 @@ struct TasksView: View {
     @State private var showFocuseView =  false
     @State private var showTaskInfoView = false
     @StateObject var focuseModel: FocuseModel = .init ()
+    @State private var emptyArrayOfData = ArrayOfDataStruct(files: [DataStruct(id: 1, user_id: 2, taskName: "Task 1", creationDate: Date(), priority: "High", tags: "Project",tagsPic:"folder", notes: "Some notes"), DataStruct(id: 2, user_id: 3, taskName: "Task 2", creationDate: Date(), priority: "Medium", tags: "Project",tagsPic:"folder", notes: "Some other notes")])
     var body: some View {
         NavigationStack{
             ZStack{
                 VStack{
-                    List(userRegistration.fil.files){ task in
-                        
+                    Text("Напоминания")
+                        .foregroundColor(Color("light"))
+                        .font(.largeTitle)
+                        .fontWeight(.black)
+                        .padding(.top, 10)
+                        .padding(.leading, -90)
+                    List{
                         Section(
                             header: Text("Next 24 hours")
                                 .foregroundColor(Color("dark"))
                         ){
-                            Text(task.taskName ?? "error")
+                            ForEach(emptyArrayOfData.files) { data in
+                                HStack{
+                                    VStack(alignment: .leading) {
+                                        Text(data.taskName)
+                                            .foregroundColor(Color("light"))
+                                            .font(.system(size:25))
+                                            .fontWeight(.black)
+                                            .lineLimit(1)
+                                            .multilineTextAlignment(.leading)
+                                        HStack{
+                                            Image(systemName: data.tagsPic)
+                                            Text(data.tags)
+                                        }
+                                        
+                                        Text("Notes: \(data.notes)")
+                                    }
+                                    .padding(.vertical, 8)
+                                    Spacer()
+                                    VStack{
+                                        Text(dateTostring(dat: data.creationDate))
+                                            .frame(width: 100, height: 50)
+                                            .border(Color("light"), width: 2)
+                                            .foregroundColor(Color("light"))
+                                    }
+                                }
+                                
+                            }
+                            .onDelete(perform: deleteTask)
                         }
-                    }
+                    }.listStyle(.plain)
+                    
+                    
+                    Spacer()
                 }
-                if showAddView == false && showFocuseView == false && showTaskInfoView == false{
+                if !showAddView && !showFocuseView && !showTaskInfoView
+                {
                     GeometryReader{ geometry in
                         Group{
                             Rectangle()
@@ -55,7 +92,7 @@ struct TasksView: View {
                                     .foregroundColor(.white)
                                 
                             }
-//                            .transition(.move(edge: .trailing)) it is not works
+                            //                            .transition(.move(edge: .trailing)) it is not works
                         }.position(x: geometry.size.width-geometry.size.width+20, y: geometry.size.height-60)
                         
                     }
@@ -64,6 +101,12 @@ struct TasksView: View {
             }
             
         }
+    }
+    func deleteTask(at offsets: IndexSet){}
+    func dateTostring(dat: Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm a"
+        return dateFormatter.string(from: dat)
     }
 }
 

@@ -2,19 +2,7 @@
 import Foundation
 import SwiftUI
 
-struct DataStruct: Decodable, Identifiable {
-    let id: Int
-    let user_id: Int
-    let taskName: String
-    let creationDate: Date
-    let priority: String
-    let tags: String
-    let notes: String
-    
-}
-struct ArrayOfDataStruct:Decodable{
-    var files: [DataStruct]
-}
+
 
 
 
@@ -93,8 +81,6 @@ class JsonWork: ObservableObject {
         print("Log in 2 userName is :\(self.user.userName).")
         task.resume()
     }
-    
-    
     func getData(){
         print("get data userName is :\(self.user.userName).")
         guard !user.userName.isEmpty && !user.userPassword.isEmpty else{

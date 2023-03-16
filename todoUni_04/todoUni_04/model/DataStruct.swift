@@ -8,24 +8,18 @@
 import Foundation
 
 
-
-
-//struct File: Decodable, Identifiable {
-//    let id: Int
-//    let userId: Int
-//    let taskName: String?
-//    let date: Date?
-//    let priority: String?
-//    let tags: String?
-//    let notes: String?
-//
-//    private enum CodingKeys: String, CodingKey {
-//        case id
-//        case userId = "user_id"
-//        case taskName = "taskName"
-//        case date
-//        case priority
-//        case tags
-//        case notes
-//    }
-//}
+struct DataStruct: Decodable, Identifiable {
+    let id: Int
+    let user_id: Int
+    let taskName: String
+    let creationDate: Date
+    let priority: String
+    let tags: String
+    let tagsPic: String
+    let notes: String
+    
+}
+struct ArrayOfDataStruct:Decodable{
+    var files: [DataStruct]
+    
+}
