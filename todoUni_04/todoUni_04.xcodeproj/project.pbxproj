@@ -13,7 +13,8 @@
 		A61B312429BE409900575A77 /* FocuseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61B312329BE409900575A77 /* FocuseModel.swift */; };
 		A62BB05E29BD0B8200DCF632 /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62BB05D29BD0B8200DCF632 /* DataStruct.swift */; };
 		A66F4C0829BB30D4007B1579 /* EnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F4C0729BB30D4007B1579 /* EnterView.swift */; };
-		A66F4C0A29BB3715007B1579 /* JsonWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F4C0929BB3714007B1579 /* JsonWork.swift */; };
+		A66F4C0A29BB3715007B1579 /* EnterViewJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F4C0929BB3714007B1579 /* EnterViewJson.swift */; };
+		A67873A829C3190D0095A727 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67873A729C3190D0095A727 /* TaskView.swift */; };
 		A67F106B29B1C8E200081817 /* todoUni_04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F106A29B1C8E200081817 /* todoUni_04App.swift */; };
 		A67F106D29B1C8E200081817 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F106C29B1C8E200081817 /* ContentView.swift */; };
 		A67F106F29B1C8E400081817 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A67F106E29B1C8E400081817 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		A687BD9129C2494500B80A09 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A687BD9029C2494500B80A09 /* AddTaskView.swift */; };
 		A69CAAB829B7824A002F17DA /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69CAAB729B7824A002F17DA /* LogIn.swift */; };
 		A69CAABA29B7880B002F17DA /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69CAAB929B7880B002F17DA /* RegisterView.swift */; };
+		A69E093229C3A334007C2057 /* AddDataJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E093129C3A334007C2057 /* AddDataJson.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +32,8 @@
 		A61B312329BE409900575A77 /* FocuseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocuseModel.swift; sourceTree = "<group>"; };
 		A62BB05D29BD0B8200DCF632 /* DataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStruct.swift; sourceTree = "<group>"; };
 		A66F4C0729BB30D4007B1579 /* EnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterView.swift; sourceTree = "<group>"; };
-		A66F4C0929BB3714007B1579 /* JsonWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonWork.swift; sourceTree = "<group>"; };
+		A66F4C0929BB3714007B1579 /* EnterViewJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewJson.swift; sourceTree = "<group>"; };
+		A67873A729C3190D0095A727 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		A67F106729B1C8E200081817 /* todoUni_04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todoUni_04.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A67F106A29B1C8E200081817 /* todoUni_04App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoUni_04App.swift; sourceTree = "<group>"; };
 		A67F106C29B1C8E200081817 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +42,7 @@
 		A687BD9029C2494500B80A09 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		A69CAAB729B7824A002F17DA /* LogIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 		A69CAAB929B7880B002F17DA /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		A69E093129C3A334007C2057 /* AddDataJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataJson.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 		A62BB05B29BCFAF000DCF632 /* for delete */ = {
 			isa = PBXGroup;
 			children = (
+				A67873A729C3190D0095A727 /* TaskView.swift */,
 				A69CAAB929B7880B002F17DA /* RegisterView.swift */,
 				A69CAAB729B7824A002F17DA /* LogIn.swift */,
 			);
@@ -64,10 +69,11 @@
 		A62BB05C29BD060A00DCF632 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				A66F4C0929BB3714007B1579 /* JsonWork.swift */,
+				A66F4C0929BB3714007B1579 /* EnterViewJson.swift */,
 				A62BB05D29BD0B8200DCF632 /* DataStruct.swift */,
 				A61B312329BE409900575A77 /* FocuseModel.swift */,
 				A6191D1C29C060660041DC47 /* UserSettings.swift */,
+				A69E093129C3A334007C2057 /* AddDataJson.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -190,8 +196,10 @@
 				A69CAABA29B7880B002F17DA /* RegisterView.swift in Sources */,
 				A61B312029BE312600575A77 /* TasksView.swift in Sources */,
 				A69CAAB829B7824A002F17DA /* LogIn.swift in Sources */,
+				A69E093229C3A334007C2057 /* AddDataJson.swift in Sources */,
+				A67873A829C3190D0095A727 /* TaskView.swift in Sources */,
 				A61B312429BE409900575A77 /* FocuseModel.swift in Sources */,
-				A66F4C0A29BB3715007B1579 /* JsonWork.swift in Sources */,
+				A66F4C0A29BB3715007B1579 /* EnterViewJson.swift in Sources */,
 				A67F106B29B1C8E200081817 /* todoUni_04App.swift in Sources */,
 				A66F4C0829BB30D4007B1579 /* EnterView.swift in Sources */,
 				A6191D1D29C060660041DC47 /* UserSettings.swift in Sources */,

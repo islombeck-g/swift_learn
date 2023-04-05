@@ -2,7 +2,7 @@
 import SwiftUI
 
 struct EnterView: View {
-    @ObservedObject var userRegistration = JsonWork()
+    @ObservedObject var userRegistration = EnterViewJson()
     @State private var textRegisterLogin:String = "Регистрация"
     var body: some View {
         NavigationStack(path: $userRegistration.pathRegister){

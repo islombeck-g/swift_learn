@@ -2,7 +2,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var userRegistration:JsonWork
+    @EnvironmentObject var userRegistration:EnterViewJson
     
     var body: some View {
         VStack {

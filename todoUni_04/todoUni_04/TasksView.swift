@@ -2,12 +2,15 @@
 import SwiftUI
 
 struct TasksView: View {
-    @ObservedObject var userRegistration = JsonWork()
+    @ObservedObject var userRegistration = EnterViewJson()
     @State private var showAddView = false
     @State private var showFocuseView =  false
     @State private var showTaskInfoView = false
     @StateObject var focuseModel: FocuseModel = .init ()
-    @State private var emptyArrayOfData = ArrayOfDataStruct(files: [DataStruct(id: 1, user_id: 2, taskName: "Task 1", creationDate: Date(), priority: "High", tags: "Project",tagsPic:"folder", notes: "Some notes"), DataStruct(id: 2, user_id: 3, taskName: "Task 2", creationDate: Date(), priority: "Medium", tags: "Project",tagsPic:"folder", notes: "Some other notes")])
+//    @State private var emptyArrayOfData = ArrayOfDataStruct(files: [DataStruct(id: 1,user_id: 2,taskName: "Task 1",creationDate: Date(),priority: "High",tags: "Project",notes: "Some notes",doneOrNot: false,tagsImg:"folder"),
+//             DataStruct(id: 2,user_id: 3,taskName: "Task 2",creationDate: Date(),priority: "Medium",tags: "Project",notes: "Some other notes",doneOrNot: false,tagsImg:"folder")])
+//
+    @State private var emptyArrayOfData:DecodedJsonFromSQL = DecodedJsonFromSQL()
     var body: some View {
         NavigationStack{
             ZStack{
@@ -23,26 +26,43 @@ struct TasksView: View {
                             header: Text("Next 24 hours")
                                 .foregroundColor(Color("dark"))
                         ){
-                            ForEach(emptyArrayOfData.files) { data in
+                            ForEach(emptyArrayOfData.dataFromSQL.files.indices, id: \.self) { index in
+                                var data = $emptyArrayOfData.dataFromSQL.files[index]
                                 HStack{
+                                    Button{
+                                        if data.doneOrNot.wrappedValue == true{
+                                            data.doneOrNot.wrappedValue = false
+                                        }else{
+                                            data.doneOrNot.wrappedValue = true
+                                        }
+//                                        $emptyArrayOfData.files[index] = data // Update the original array with the modified element
+                                    } label: {
+                                        if let done = data.doneOrNot {
+                                            Image(systemName: "circle")
+                                                .foregroundColor(Color("dark"))
+                                        } else {
+                                            Image(systemName: "circle.fill")
+                                                .foregroundColor(Color("dark"))
+                                        }
+                                    }
                                     VStack(alignment: .leading) {
-                                        Text(data.taskName)
+                                        Text(data.taskName.wrappedValue)
                                             .foregroundColor(Color("light"))
                                             .font(.system(size:25))
                                             .fontWeight(.black)
                                             .lineLimit(1)
                                             .multilineTextAlignment(.leading)
                                         HStack{
-                                            Image(systemName: data.tagsPic)
-                                            Text(data.tags)
+                                            Image(systemName: data.tagsImg.wrappedValue)
+                                            Text(data.tags.wrappedValue)
                                         }
                                         
-                                        Text("Notes: \(data.notes)")
+                                        Text("Notes: \(data.notes.wrappedValue)")
                                     }
                                     .padding(.vertical, 8)
                                     Spacer()
                                     VStack{
-                                        Text(dateTostring(dat: data.creationDate))
+                                        Text(dateTostring(dat: data.creationDate.wrappedValue))
                                             .frame(width: 100, height: 50)
                                             .border(Color("light"), width: 2)
                                             .foregroundColor(Color("light"))
@@ -51,8 +71,13 @@ struct TasksView: View {
                                 
                             }
                             .onDelete(perform: deleteTask)
+                            
                         }
+                        
+                       
+                        
                     }.listStyle(.plain)
+                        
                     
                     
                     Spacer()
@@ -67,7 +92,8 @@ struct TasksView: View {
                                 .modifier(RoundedCorner(corners: [.topLeft, .bottomLeft], radius: 15  ))
                             
                             NavigationLink{
-                                //someAction
+                                AddTaskView(model: AddDataJson(user: userRegistration.user))
+                                    
                             }label: {
                                 Label("Напоминание", systemImage: "plus")
                                     .foregroundColor(.white)
@@ -108,6 +134,15 @@ struct TasksView: View {
         dateFormatter.dateFormat = "HH:mm a"
         return dateFormatter.string(from: dat)
     }
+    func move(from source: IndexSet, to destination: Int) {
+           // Вызывается при перетаскивании пальца вправо
+           // Ваш код здесь
+       }
+//    func move(from source: IndexSet, to destination: Int) {
+//        emptyArrayOfData.files.move(fromOffsets: source, toOffset: destination)
+//    }
+//
+//
 }
 
 

@@ -5,15 +5,15 @@ import SwiftUI
 
 
 
+//depense injections
 
-
-class JsonWork: ObservableObject {
+class EnterViewJson: ObservableObject {
     @Published var user = UserSettings()
     @Published var errorMessage: String = ""
     @Published var pathRegister = NavigationPath()
     @Published var userNameCONST:String = ""
     @Published var userPasswordCONST:String = ""
-    var link:String = "https://1660-85-249-24-235.eu.ngrok.io"
+    
     @Published var fil = ArrayOfDataStruct(files: [])
     
     func registerUser() {
@@ -21,7 +21,7 @@ class JsonWork: ObservableObject {
             self.errorMessage = "Uncorrect type of user or password"
             return
         }
-        let url = URL(string: "\(link)/create-user")!
+        let url = URL(string: "\(user.link)/create-user")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -54,7 +54,7 @@ class JsonWork: ObservableObject {
             self.errorMessage = "Uncorrect type of user or password"
             return
         }
-        let url = URL(string: "\(link)/user")!
+        let url = URL(string: "\(user.link)/user")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -90,7 +90,7 @@ class JsonWork: ObservableObject {
         print("username is true")
         
         
-        let url = URL(string: "\(link)/data")!
+        let url = URL(string: "\(user.link)/data")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -108,7 +108,7 @@ class JsonWork: ObservableObject {
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             let jsonString = String(data: data!, encoding: .utf8)
-            print("Received JSON data: \(jsonString)")
+            print("Received JSON data: \(String(describing: jsonString))")
             
             guard let data = data else {
                 fatalError("No data in response: \(error?.localizedDescription ?? "Unknown error")")
@@ -120,6 +120,8 @@ class JsonWork: ObservableObject {
                     self.fil = decodedResponse
                 }
             } catch let error {
+                
+                print()
                 fatalError("Failed to decode JSON: \(error.localizedDescription)")
             }
         }

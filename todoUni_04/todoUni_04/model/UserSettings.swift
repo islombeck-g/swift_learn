@@ -11,4 +11,6 @@ import Foundation
 class UserSettings{
     @Published var userName:String = ""
     @Published var userPassword:String = ""
+    @Published var link:String = "https://1660-85-249-24-235.eu.ngrok.io"
 }
+//middleware

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A616472D29D9FDD6008934C7 /* enterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616472C29D9FDD6008934C7 /* enterView.swift */; };
+		A616472F29D9FEA2008934C7 /* enterView_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616472E29D9FEA2008934C7 /* enterView_01.swift */; };
+		A616473129DA079B008934C7 /* enterView_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616473029DA079B008934C7 /* enterView_02.swift */; };
+		A616473529DA0826008934C7 /* enterViewRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616473429DA0826008934C7 /* enterViewRModel.swift */; };
+		A616473729DA083F008934C7 /* enterViewLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616473629DA083F008934C7 /* enterViewLModel.swift */; };
+		A616473929DA500E008934C7 /* studentStructModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616473829DA500E008934C7 /* studentStructModel.swift */; };
 		A675249D29AC893A00D8B8FB /* laborExchangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A675249C29AC893A00D8B8FB /* laborExchangeApp.swift */; };
 		A675249F29AC893A00D8B8FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A675249E29AC893A00D8B8FB /* ContentView.swift */; };
 		A67524A129AC893B00D8B8FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A67524A029AC893B00D8B8FB /* Assets.xcassets */; };
@@ -18,6 +24,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A616472C29D9FDD6008934C7 /* enterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enterView.swift; sourceTree = "<group>"; };
+		A616472E29D9FEA2008934C7 /* enterView_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enterView_01.swift; sourceTree = "<group>"; };
+		A616473029DA079B008934C7 /* enterView_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enterView_02.swift; sourceTree = "<group>"; };
+		A616473429DA0826008934C7 /* enterViewRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enterViewRModel.swift; sourceTree = "<group>"; };
+		A616473629DA083F008934C7 /* enterViewLModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enterViewLModel.swift; sourceTree = "<group>"; };
+		A616473829DA500E008934C7 /* studentStructModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studentStructModel.swift; sourceTree = "<group>"; };
 		A675249929AC893A00D8B8FB /* laborExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = laborExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A675249C29AC893A00D8B8FB /* laborExchangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = laborExchangeApp.swift; sourceTree = "<group>"; };
 		A675249E29AC893A00D8B8FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +52,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A616473229DA07D3008934C7 /* EnterViews */ = {
+			isa = PBXGroup;
+			children = (
+				A616473329DA07F0008934C7 /* models */,
+				A616472C29D9FDD6008934C7 /* enterView.swift */,
+				A616472E29D9FEA2008934C7 /* enterView_01.swift */,
+				A616473029DA079B008934C7 /* enterView_02.swift */,
+			);
+			path = EnterViews;
+			sourceTree = "<group>";
+		};
+		A616473329DA07F0008934C7 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				A616473429DA0826008934C7 /* enterViewRModel.swift */,
+				A616473629DA083F008934C7 /* enterViewLModel.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		A675249029AC893A00D8B8FB = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				A675249E29AC893A00D8B8FB /* ContentView.swift */,
+				A616473229DA07D3008934C7 /* EnterViews */,
 				A67524B229AC8ABC00D8B8FB /* TabBarView.swift */,
 				A675249C29AC893A00D8B8FB /* laborExchangeApp.swift */,
 				A67524AA29AC8A6000D8B8FB /* seller */,
@@ -91,6 +124,7 @@
 				A67524AC29AC8A6000D8B8FB /* EditProfileView.swift */,
 				A67524AD29AC8A6000D8B8FB /* MainViewOfStudent.swift */,
 				A67524AE29AC8A6000D8B8FB /* ProfileMainView.swift */,
+				A616473829DA500E008934C7 /* studentStructModel.swift */,
 			);
 			path = Student;
 			sourceTree = "<group>";
@@ -166,10 +200,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A67524AF29AC8A6000D8B8FB /* EditProfileView.swift in Sources */,
+				A616473129DA079B008934C7 /* enterView_02.swift in Sources */,
 				A675249F29AC893A00D8B8FB /* ContentView.swift in Sources */,
+				A616472D29D9FDD6008934C7 /* enterView.swift in Sources */,
+				A616473529DA0826008934C7 /* enterViewRModel.swift in Sources */,
 				A67524B029AC8A6000D8B8FB /* MainViewOfStudent.swift in Sources */,
 				A675249D29AC893A00D8B8FB /* laborExchangeApp.swift in Sources */,
 				A67524B329AC8ABC00D8B8FB /* TabBarView.swift in Sources */,
+				A616473929DA500E008934C7 /* studentStructModel.swift in Sources */,
+				A616472F29D9FEA2008934C7 /* enterView_01.swift in Sources */,
+				A616473729DA083F008934C7 /* enterViewLModel.swift in Sources */,
 				A67524B129AC8A6000D8B8FB /* ProfileMainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

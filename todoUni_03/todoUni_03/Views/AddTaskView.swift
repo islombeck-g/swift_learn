@@ -146,7 +146,12 @@ struct AddTaskView: View {
                     Spacer()
                     Button{
                         if(taskName != ""){
-                            data.addToData(taskName: taskName, taskDesc: taskDesc, taskDate: taskDate, selectedPriority: selectedPriority ?? "green", selectedCategory: selectedCategory ?? "University", selectedCategoryImg: selectedCategoryImg ?? "graduationcap")
+                            data.addToData(taskName: taskName,
+                                           taskDesc: taskDesc,
+                                           taskDate: taskDate,
+                                           selectedPriority: selectedPriority ?? "green",
+                                           selectedCategory: selectedCategory ?? "University",
+                                           selectedCategoryImg: selectedCategoryImg ?? "graduationcap")
                         }
                         self.showAddView.toggle()
                     }label:{

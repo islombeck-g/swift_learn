@@ -2,6 +2,8 @@
 import SwiftUI
 
 struct AddTaskView: View {
+    
+    @StateObject var model: AddDataJson
     @Environment(\.presentationMode) var presentationMode
     @State private var taskName:String = ""
     @State private var taskDesc:String = ""
@@ -29,6 +31,7 @@ struct AddTaskView: View {
                     }
                     Group{
                         Text("Remind me")
+                        
                         ZStack{
                             Image(systemName: "alarm.waves.left.and.right")
                                 .padding(.leading, -165.0)
@@ -40,32 +43,32 @@ struct AddTaskView: View {
                         Text("Priority")
                         HStack{
                             Button{
-                                self.selectedPriority = "green"
+                                self.selectedPriority = "g"
                             }label: {
                                 Circle()
                                     .fill(.green)
-                                    .frame(width: self.selectedPriority == "green" ? 30 : 25, height: self.selectedPriority == "green" ? 30 : 25, alignment: .center)
+                                    .frame(width: self.selectedPriority == "g" ? 30 : 25, height: self.selectedPriority == "g" ? 30 : 25, alignment: .center)
                             }
                             Button{
-                                self.selectedPriority = "yellow"
+                                self.selectedPriority = "y"
                             }label: {
                                 Circle()
                                     .fill(.yellow)
-                                    .frame(width: self.selectedPriority == "yellow" ? 30 : 25, height: self.selectedPriority == "yellow" ? 30 : 25, alignment: .center)
+                                    .frame(width: self.selectedPriority == "y" ? 30 : 25, height: self.selectedPriority == "y" ? 30 : 25, alignment: .center)
                             }
                             Button{
-                                self.selectedPriority = "orange"
+                                self.selectedPriority = "o"
                             }label: {
                                 Circle()
                                     .fill(.orange)
-                                    .frame(width: self.selectedPriority == "orange" ? 30 : 25, height: self.selectedPriority == "orange" ? 30 : 25, alignment: .center)
+                                    .frame(width: self.selectedPriority == "o" ? 30 : 25, height: self.selectedPriority == "o" ? 30 : 25, alignment: .center)
                             }
                             Button{
-                                self.selectedPriority = "red"
+                                self.selectedPriority = "r"
                             }label: {
                                 Circle()
                                     .fill(.red)
-                                    .frame(width: self.selectedPriority == "red" ? 30 : 25, height: self.selectedPriority == "red" ? 30 : 25, alignment: .center)
+                                    .frame(width: self.selectedPriority == "r" ? 30 : 25, height: self.selectedPriority == "r" ? 30 : 25, alignment: .center)
                             }
                         }
                     }
@@ -148,6 +151,20 @@ struct AddTaskView: View {
                         .frame(width: 130, height: 60)
                         .modifier(RoundedCorner(corners: [.topLeft, .bottomLeft], radius: 15  ))
                     Button{
+                        if !taskName.isEmpty{
+                            self.model.userData.taskName = taskName
+                            self.model.userData.creationDate = taskDate
+                            self.model.userData.priority = selectedPriority!
+                            self.model.userData.tags = selectedCategory!
+                            self.model.userData.notes = taskDesc
+                            self.model.userData.doneOrNot = false
+                            self.model.userData.tagsImg = selectedCategoryImg!
+                            self.model.addToSQL()
+                            print("data added succsessfully")
+                        }
+                        else{
+                            print("error dataAdd in AddTaskView-islam")
+                        }
                         presentationMode.wrappedValue.dismiss()
                     }label: {
                         Label("добавить", systemImage: "plus")
@@ -162,9 +179,9 @@ struct AddTaskView: View {
         }
     }
 
-
-struct AddTaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddTaskView()
-    }
-}
+//
+//struct AddTaskView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddTaskView(model: <#AddDataJson#>)
+//    }
+//}
