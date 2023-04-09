@@ -9,29 +9,11 @@ import SwiftUI
 
 struct MainViewOfStudent: View {
     var body: some View {
-        NavigationView{
+        VStack{
             
-            Text("sdsf")
+            Text("StudentMain")
             
-                .toolbar{
-                    ToolbarItem(placement: .navigationBarTrailing){
-                        Menu{
-                            Button{}label: {
-                                Text("firstSort")
-                            }
-                            Button{}label: {
-                                Text("secondSort")
-                            }
-                            Button{}label: {
-                                Text("thirdSort")
-                            }
-                        }label: {
-                            Image(systemName: "slider.horizontal.3")
-                                    .foregroundColor(.black)
-                        }
-                        
-                    }
-                }
+                
         }
     }
     

@@ -37,7 +37,7 @@ struct TasksView: View {
                                         }
 //                                        $emptyArrayOfData.files[index] = data // Update the original array with the modified element
                                     } label: {
-                                        if let done = data.doneOrNot {
+                                        if data.doneOrNot != nil {
                                             Image(systemName: "circle")
                                                 .foregroundColor(Color("dark"))
                                         } else {

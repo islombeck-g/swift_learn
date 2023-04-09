@@ -1,9 +1,4 @@
-//
-//  DataStruct.swift
-//  todoUni_04
-//
-//  Created by Islombek Gofurov on 11.03.2023.
-//
+
 
 import Foundation
 

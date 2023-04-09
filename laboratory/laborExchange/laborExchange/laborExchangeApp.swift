@@ -5,7 +5,7 @@ import SwiftUI
 struct laborExchangeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            enterView()
         }
     }
 }
